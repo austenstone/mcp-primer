@@ -26,14 +26,20 @@
     "start:stdio": "cross-env NODE_ENV=development npm run build 1>&2 && npm run serve:stdio",
     "dev": "cross-env NODE_ENV=development concurrently \"npm run watch\" \"npm run serve\""
   },
-  "keywords": ["mcp", "primer", "github", "design-system", "mcp-apps"],
+  "keywords": [
+    "mcp",
+    "primer",
+    "github",
+    "design-system",
+    "mcp-apps"
+  ],
   "author": "Austen Stone",
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/ext-apps": "^1.0.0",
     "@modelcontextprotocol/sdk": "^1.24.0",
+    "@primer/primitives": "^11.5.1",
     "@primer/react": "^38.16.0",
-    "@primer/primitives": "latest",
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "react": "^19.2.0",

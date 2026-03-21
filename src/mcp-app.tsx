@@ -1,10 +1,10 @@
 import type { App, McpUiHostContext } from "@modelcontextprotocol/ext-apps";
-import { useApp } from "@modelcontextprotocol/ext-apps/react";
+import { useApp, useHostStyles } from "@modelcontextprotocol/ext-apps/react";
 import type { CallToolResult } from "@modelcontextprotocol/sdk/types.js";
 import "@primer/primitives/dist/css/functional/themes/light.css";
 import "@primer/primitives/dist/css/functional/themes/dark.css";
 import { BaseStyles, ThemeProvider } from "@primer/react";
-import { StrictMode, useEffect, useState } from "react";
+import { StrictMode, useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { PrimerRenderer } from "./PrimerRenderer";
 
@@ -42,8 +42,8 @@ function PrimerApp() {
                 { type: "Heading", props: { as: "h2" }, children: "Available Primer Components" },
                 { type: "Text", props: { as: "p", color: "fg.muted" }, children: `${parsed.components.length} components available` },
                 {
-                  type: "Box",
-                  props: { display: "flex", flexWrap: "wrap", sx: { gap: 2 } },
+                  type: "Stack",
+                  props: { direction: "horizontal", wrap: "wrap", gap: "condensed" },
                   children: parsed.components.map((name: string) => ({
                     type: "Label",
                     children: name,
@@ -83,9 +83,29 @@ function PrimerApp() {
     }
   }, [app]);
 
+  // Sync host theme (dark/light) with the document and Primer
+  useHostStyles(app, hostContext);
+
+  // Derive Primer colorMode from host theme
+  const colorMode = useMemo(() => {
+    const theme = hostContext?.theme;
+    if (theme === "dark") return "night" as const;
+    if (theme === "light") return "day" as const;
+    return "auto" as const;
+  }, [hostContext?.theme]);
+
+  // Keep <html> data attributes in sync for Primer primitives CSS
+  useEffect(() => {
+    const html = document.documentElement;
+    const isDark = hostContext?.theme === "dark";
+    html.setAttribute("data-color-mode", hostContext?.theme ? (isDark ? "dark" : "light") : "auto");
+    html.setAttribute("data-light-theme", "light");
+    html.setAttribute("data-dark-theme", "dark");
+  }, [hostContext?.theme]);
+
   if (connectError) {
     return (
-      <ThemeProvider>
+      <ThemeProvider colorMode={colorMode}>
         <BaseStyles>
           <div style={{ padding: 16, color: "var(--fgColor-danger)" }}>
             Connection error: {connectError.message}
@@ -97,7 +117,7 @@ function PrimerApp() {
 
   if (!app) {
     return (
-      <ThemeProvider>
+      <ThemeProvider colorMode={colorMode}>
         <BaseStyles>
           <div style={{ padding: 16, display: "flex", alignItems: "center", gap: 8 }}>
             Connecting...
@@ -108,7 +128,7 @@ function PrimerApp() {
   }
 
   return (
-    <ThemeProvider>
+    <ThemeProvider colorMode={colorMode}>
       <BaseStyles>
         <main
           style={{

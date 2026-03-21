@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "primer": {
+      "command": "node",
+      "args": ["${workspaceFolder}/dist/main.js", "--stdio"]
+    }
+  }
+}
