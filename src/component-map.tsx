@@ -48,15 +48,8 @@ import {
 // don't match our generic signature. The LLM provides correct props at runtime.
 const c = (x: any): ComponentType<any> => x as ComponentType<any>;
 
-// Box isn't exported from @primer/react anymore — provide a simple div wrapper
-function Box(props: Record<string, any>) {
-  const { sx, ...rest } = props;
-  return <div {...rest} style={{ ...rest.style, ...sx }} />;
-}
-
 const COMPONENT_MAP: Record<string, ComponentType<any>> = {
   // Layout
-  Box: c(Box),
   Stack: c(Stack),
   "Stack.Item": c(Stack.Item),
   PageLayout: c(PageLayout),

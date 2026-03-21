@@ -19,7 +19,7 @@ const DIST_DIR = import.meta.filename.endsWith(".ts")
 // All supported Primer component names
 const PRIMER_COMPONENTS = [
   // Layout
-  "Box", "Stack", "Stack.Item", "PageLayout", "PageHeader",
+  "Stack", "Stack.Item", "PageLayout", "PageHeader",
   // Typography
   "Heading", "Text",
   // Actions
