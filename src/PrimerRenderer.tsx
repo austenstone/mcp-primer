@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { App } from "@modelcontextprotocol/ext-apps";
-import { createContext, createElement, useContext, type ReactNode } from "react";
+import { createContext, createElement, useCallback, useContext, useRef, type ReactNode } from "react";
 import { resolveComponent } from "./component-map";
 
 interface ComponentNode {
@@ -9,7 +9,12 @@ interface ComponentNode {
   children?: string | ComponentNode | (string | ComponentNode)[];
 }
 
-const AppContext = createContext<App | null>(null);
+interface AppContextValue {
+  app: App | null;
+  formState: React.MutableRefObject<Record<string, unknown>>;
+}
+
+const AppContext = createContext<AppContextValue>({ app: null, formState: { current: {} } });
 
 function emit(app: App | null, eventId: string, detail: Record<string, unknown> = {}) {
   if (!app) return;
@@ -18,11 +23,9 @@ function emit(app: App | null, eventId: string, detail: Record<string, unknown> 
   }).catch(console.error);
 }
 
-// Extract a serializable value from any event-like argument
 function extractValue(arg: unknown): unknown {
   if (arg === null || arg === undefined) return arg;
   if (typeof arg === "string" || typeof arg === "number" || typeof arg === "boolean") return arg;
-  // React SyntheticEvent — pull value/checked from target
   if (typeof arg === "object" && "target" in (arg as Record<string, unknown>)) {
     const target = (arg as any).target;
     if (target && typeof target === "object") {
@@ -32,7 +35,6 @@ function extractValue(arg: unknown): unknown {
       if ("value" in target) return target.value;
     }
   }
-  // Array of items (e.g. selection events)
   if (Array.isArray(arg)) return arg.map(extractValue);
   return String(arg);
 }
@@ -50,7 +52,7 @@ function renderChildren(children: ComponentNode["children"]): ReactNode {
 }
 
 function PrimerNode({ node }: { node: ComponentNode }) {
-  const app = useContext(AppContext);
+  const { app, formState } = useContext(AppContext);
   const Component = resolveComponent(node.type);
 
   if (!Component) {
@@ -63,33 +65,43 @@ function PrimerNode({ node }: { node: ComponentNode }) {
 
   const props: Record<string, unknown> = {};
 
-  // Separate onEvent handlers from regular props
   for (const [key, val] of Object.entries(node.props ?? {})) {
-    if (key === "onEvent") continue;
+    // onSubmit="event-id" → collects all form state and sends it
+    if (key === "onSubmit" && typeof val === "string") {
+      const eventId = val;
+      props.onClick = () => emit(app, eventId, { formData: { ...formState.current } });
+      continue;
+    }
 
-    // Any prop starting with "on" whose value is a string = event binding
-    // e.g. { onClick: "merge-clicked", onChange: "name-changed" }
+    // onChange="field-name" → stores value in form state (no network call)
+    if (key === "onChange" && typeof val === "string") {
+      const fieldName = val;
+      props.onChange = (...args: unknown[]) => {
+        formState.current[fieldName] = extractValue(args[0]);
+      };
+      continue;
+    }
+
+    // onClick="event-id" → immediate fire (for buttons, selections)
+    if (key === "onClick" && typeof val === "string") {
+      const eventId = val;
+      props.onClick = () => emit(app, eventId, { component: node.type });
+      continue;
+    }
+
+    // Any other on* with string value → immediate fire with extracted value
     if (key.startsWith("on") && typeof val === "string") {
       const eventId = val;
       props[key] = (...args: unknown[]) => {
-        const detail: Record<string, unknown> = { component: node.type };
-        if (args.length === 1) {
-          detail.value = extractValue(args[0]);
-        } else if (args.length > 1) {
-          detail.args = args.map(extractValue);
-        }
-        emit(app, eventId, detail);
+        emit(app, eventId, {
+          component: node.type,
+          value: args.length === 1 ? extractValue(args[0]) : args.map(extractValue),
+        });
       };
       continue;
     }
 
     props[key] = val;
-  }
-
-  // Legacy: onEvent prop as a catch-all click handler
-  const onEvent = (node.props as Record<string, unknown> | undefined)?.onEvent;
-  if (typeof onEvent === "string" && !props.onClick) {
-    props.onClick = () => emit(app, onEvent, { component: node.type });
   }
 
   const rendered = renderChildren(node.children);
@@ -102,8 +114,11 @@ interface PrimerRendererProps {
 }
 
 export function PrimerRenderer({ tree, app }: PrimerRendererProps) {
+  const formState = useRef<Record<string, unknown>>({});
+  const contextValue = useCallback(() => ({ app, formState }), [app]);
+
   return (
-    <AppContext.Provider value={app}>
+    <AppContext.Provider value={contextValue()}>
       <PrimerNode node={tree} />
     </AppContext.Provider>
   );

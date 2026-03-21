@@ -32,11 +32,20 @@ export const inputSchema = {
       "`type` is a Primer component name. `props` is an object of component props. " +
       "`children` can be a string (text), a single child node, or an array of child nodes. " +
       "Nodes can be nested recursively.\n\n" +
-      "**Events:** Any `on*` prop (onClick, onChange, onSelect, etc.) with a string value " +
-      "becomes an event binding. When triggered, the event ID and extracted value are sent " +
-      "to the model context. Example: { type: 'Button', props: { onClick: 'merge-clicked' }, children: 'Merge' } " +
-      "or { type: 'TextInput', props: { onChange: 'name-changed', placeholder: 'Enter name' } }. " +
-      "Legacy: `onEvent` prop works as a catch-all click handler.\n\n" +
+      "**Form events:**\n" +
+      "- `onChange: \"fieldName\"` — stores input value locally (no immediate report). Use on TextInput, Textarea, Select, Checkbox, Radio.\n" +
+      "- `onSubmit: \"eventId\"` — on a Button, collects ALL form field values and sends them as `{ event, formData: { field1: value1, ... } }` to model context.\n" +
+      "- `onClick: \"eventId\"` — immediate fire (for buttons, selections).\n" +
+      "- Any other `on*: \"eventId\"` — immediate fire with extracted value.\n\n" +
+      "Example form:\n" +
+      "```json\n" +
+      '{ "type": "Stack", "props": { "direction": "vertical" }, "children": [\n' +
+      '  { "type": "TextInput", "props": { "onChange": "repoName", "placeholder": "repo name" } },\n' +
+      '  { "type": "Select", "props": { "onChange": "visibility" }, "children": [...] },\n' +
+      '  { "type": "Button", "props": { "onSubmit": "create-repo", "variant": "primary" }, "children": "Create" }\n' +
+      "]}\n" +
+      "```\n" +
+      'Clicking Create sends: `{ "event": "create-repo", "formData": { "repoName": "my-repo", "visibility": "public" } }`\n\n' +
       "Available components:\n" + componentSummary,
     ),
 };
