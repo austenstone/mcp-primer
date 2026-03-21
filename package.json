@@ -18,7 +18,8 @@
     }
   },
   "scripts": {
-    "build": "tsc --noEmit && cross-env INPUT=mcp-app.html vite build && tsc -p tsconfig.server.json",
+    "generate": "tsx scripts/generate-components.ts",
+    "build": "npm run generate && tsc --noEmit && cross-env INPUT=mcp-app.html vite build && tsc -p tsconfig.server.json",
     "watch": "cross-env INPUT=mcp-app.html vite build --watch",
     "serve": "tsx watch main.ts",
     "serve:stdio": "tsx main.ts --stdio",

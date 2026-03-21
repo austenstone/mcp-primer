@@ -1,158 +1,45 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { type ComponentType } from "react";
-import {
-  ActionList,
-  ActionMenu,
-  Avatar,
-  AvatarStack,
-  Banner,
-  BranchName,
-  Breadcrumbs,
-  Button,
-  ButtonGroup,
-  Checkbox,
-  CounterLabel,
-  Dialog,
-  FormControl,
-  Heading,
-  IconButton,
-  Label,
-  Link,
-  LinkButton,
-  NavList,
-  PageHeader,
-  PageLayout,
-  Pagination,
-  Popover,
-  ProgressBar,
-  Radio,
-  RelativeTime,
-  SegmentedControl,
-  Select,
-  Spinner,
-  Stack,
-  StateLabel,
-  Text,
-  Textarea,
-  TextInput,
-  Timeline,
-  ToggleSwitch,
-  Token,
-  Tooltip,
-  TreeView,
-  Truncate,
-  UnderlineNav,
-} from "@primer/react";
-import { DataTable, Table } from "@primer/react/experimental";
+import * as Primer from "@primer/react";
+import * as PrimerExperimental from "@primer/react/experimental";
 
-// Cast through `unknown` — Primer components have strict required props that
-// don't match our generic signature. The LLM provides correct props at runtime.
-const c = (x: any): ComponentType<any> => x as ComponentType<any>;
+function isComponent(val: unknown): val is ComponentType<any> {
+  if (typeof val === "function") return true;
+  // ForwardRef / memo components have $$typeof
+  if (val && typeof val === "object" && "$$typeof" in val) return true;
+  return false;
+}
 
-const COMPONENT_MAP: Record<string, ComponentType<any>> = {
-  // Layout
-  Stack: c(Stack),
-  "Stack.Item": c(Stack.Item),
-  PageLayout: c(PageLayout),
-  PageHeader: c(PageHeader),
+function discoverComponents(
+  exports: object,
+  map: Record<string, ComponentType<any>>,
+) {
+  for (const [name, val] of Object.entries(exports as Record<string, unknown>)) {
+    // Only PascalCase exports (components), skip hooks/utils/types
+    if (!/^[A-Z]/.test(name)) continue;
+    if (!isComponent(val)) continue;
 
-  // Typography
-  Heading: c(Heading),
-  Text: c(Text),
+    map[name] = val as ComponentType<any>;
 
-  // Actions
-  Button: c(Button),
-  IconButton: c(IconButton),
-  ButtonGroup: c(ButtonGroup),
-  LinkButton: c(LinkButton),
+    // Discover sub-components (e.g. ActionList.Item, Table.Head)
+    if (typeof val === "object" || typeof val === "function") {
+      for (const [subName, subVal] of Object.entries(val as unknown as Record<string, unknown>)) {
+        if (!/^[A-Z]/.test(subName)) continue;
+        if (!isComponent(subVal)) continue;
+        map[`${name}.${subName}`] = subVal as ComponentType<any>;
+      }
+    }
+  }
+}
 
-  // Navigation
-  Breadcrumbs: c(Breadcrumbs),
-  "Breadcrumbs.Item": c(Breadcrumbs.Item),
-  Link: c(Link),
-  Pagination: c(Pagination),
-  UnderlineNav: c(UnderlineNav),
-  "UnderlineNav.Item": c((UnderlineNav as any).Item),
-
-  // Data display
-  Avatar: c(Avatar),
-  AvatarStack: c(AvatarStack),
-  BranchName: c(BranchName),
-  CounterLabel: c(CounterLabel),
-  Label: c(Label),
-  StateLabel: c(StateLabel),
-  Token: c(Token),
-  RelativeTime: c(RelativeTime),
-  Timeline: c(Timeline),
-  "Timeline.Item": c(Timeline.Item),
-  "Timeline.Badge": c(Timeline.Badge),
-
-  // Feedback
-  Banner: c(Banner),
-  Spinner: c(Spinner),
-  ProgressBar: c(ProgressBar),
-
-  // Forms
-  TextInput: c(TextInput),
-  Textarea: c(Textarea),
-  Select: c(Select),
-  Checkbox: c(Checkbox),
-  Radio: c(Radio),
-  FormControl: c(FormControl),
-  "FormControl.Label": c(FormControl.Label),
-  "FormControl.Caption": c(FormControl.Caption),
-  "FormControl.Validation": c(FormControl.Validation),
-  ToggleSwitch: c(ToggleSwitch),
-  SegmentedControl: c(SegmentedControl),
-  "SegmentedControl.Button": c(SegmentedControl.Button),
-
-  // Overlays
-  ActionList: c(ActionList),
-  "ActionList.Item": c(ActionList.Item),
-  "ActionList.LeadingVisual": c(ActionList.LeadingVisual),
-  "ActionList.TrailingVisual": c(ActionList.TrailingVisual),
-  "ActionList.Description": c(ActionList.Description),
-  "ActionList.Divider": c(ActionList.Divider),
-  "ActionList.GroupHeading": c(ActionList.GroupHeading),
-  ActionMenu: c(ActionMenu),
-  "ActionMenu.Button": c(ActionMenu.Button),
-  "ActionMenu.Overlay": c(ActionMenu.Overlay),
-  Dialog: c(Dialog),
-
-  // Misc
-  Truncate: c(Truncate),
-  Tooltip: c(Tooltip),
-  Popover: c(Popover),
-  "Popover.Content": c(Popover.Content),
-  TreeView: c(TreeView),
-  "TreeView.Item": c(TreeView.Item),
-  "TreeView.SubTree": c(TreeView.SubTree),
-  NavList: c(NavList),
-  "NavList.Item": c(NavList.Item),
-  "NavList.SubNav": c(NavList.SubNav),
-
-  // Data
-  DataTable: c(DataTable),
-  Table: c(Table),
-  "Table.Container": c(Table.Container),
-  "Table.Title": c(Table.Title),
-  "Table.Subtitle": c(Table.Subtitle),
-  "Table.Actions": c(Table.Actions),
-  "Table.Divider": c(Table.Divider),
-  "Table.Skeleton": c(Table.Skeleton),
-  "Table.Head": c(Table.Head),
-  "Table.Body": c(Table.Body),
-  "Table.Header": c(Table.Header),
-  "Table.Row": c(Table.Row),
-  "Table.Cell": c(Table.Cell),
-  "Table.CellPlaceholder": c(Table.CellPlaceholder),
-  "Table.Pagination": c(Table.Pagination),
-};
+const COMPONENT_MAP: Record<string, ComponentType<any>> = {};
+discoverComponents(Primer, COMPONENT_MAP);
+discoverComponents(PrimerExperimental, COMPONENT_MAP);
 
 export function resolveComponent(name: string): ComponentType<any> | undefined {
   return COMPONENT_MAP[name];
 }
 
 export function getComponentNames(): string[] {
-  return Object.keys(COMPONENT_MAP);
+  return Object.keys(COMPONENT_MAP).sort();
 }

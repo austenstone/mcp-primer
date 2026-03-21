@@ -1,0 +1,2899 @@
+{
+  "version": "38.16.0",
+  "generatedAt": "2026-03-21T06:56:57.041Z",
+  "components": [
+    {
+      "name": "ActionBar",
+      "description": "",
+      "props": [
+        {
+          "name": "size",
+          "type": "\"medium\" | \"large\" | \"small\"",
+          "required": false,
+          "description": "Size of the action bar"
+        },
+        {
+          "name": "children",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": true,
+          "description": "Buttons in the action bar"
+        },
+        {
+          "name": "flush",
+          "type": "false | true",
+          "required": false,
+          "description": "Allows ActionBar to be flush with the container"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Custom className"
+        },
+        {
+          "name": "gap",
+          "type": "\"none\" | \"condensed\"",
+          "required": false,
+          "description": "Horizontal gap scale between items (mirrors Stack gap scale)"
+        }
+      ],
+      "subComponents": [
+        "IconButton",
+        "Divider",
+        "Group",
+        "Menu"
+      ]
+    },
+    {
+      "name": "ActionList",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "As",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": [
+        "Group",
+        "Item",
+        "LinkItem",
+        "Divider",
+        "Description",
+        "LeadingVisual",
+        "TrailingVisual",
+        "Heading",
+        "GroupHeading",
+        "TrailingAction"
+      ]
+    },
+    {
+      "name": "ActionMenu",
+      "description": "",
+      "props": [
+        {
+          "name": "open",
+          "type": "false | true",
+          "required": false,
+          "description": "If defined, will control the open/closed state of the overlay. Must be used in conjunction with `onOpenChange`."
+        },
+        {
+          "name": "anchorRef",
+          "type": "RefObject<HTMLElement>",
+          "required": false,
+          "description": "An override to the internal ref that will be spread on to the renderAnchor\nAn override to the internal renderAnchor ref that will be used to position the overlay.\nWhen renderAnchor is null this can be used to make an anchor that is detached from ActionMenu."
+        }
+      ],
+      "subComponents": [
+        "Button",
+        "Anchor",
+        "Overlay",
+        "Divider"
+      ]
+    },
+    {
+      "name": "AnchoredOverlay",
+      "description": "",
+      "props": [
+        {
+          "name": "open",
+          "type": "false | true",
+          "required": true,
+          "description": "Determines whether the overlay portion of the component should be shown or not"
+        },
+        {
+          "name": "overlayProps",
+          "type": "Partial<Omit<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, \"height\" | \"width\" | \"style\" | ... 5 more ... | keyof ContainerProps> & Omit<...> & ContainerProps & { ...; }>",
+          "required": false,
+          "description": "Props to be spread on the internal `Overlay` component."
+        },
+        {
+          "name": "focusTrapSettings",
+          "type": "Partial<FocusTrapHookSettings>",
+          "required": false,
+          "description": "Settings to apply to the Focus Zone on the internal `Overlay` component."
+        },
+        {
+          "name": "focusZoneSettings",
+          "type": "Partial<FocusZoneHookSettings>",
+          "required": false,
+          "description": "Settings to apply to the Focus Zone on the internal `Overlay` component."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Optional className to be added to the overlay component."
+        },
+        {
+          "name": "preventOverflow",
+          "type": "false | true",
+          "required": false,
+          "description": "preventOverflow Optional. The Overlay width will be adjusted responsively if there is not enough space to display the Overlay.\nIf `preventOverflow` is `true`, the width of the `Overlay` will not be adjusted."
+        },
+        {
+          "name": "pinPosition",
+          "type": "false | true",
+          "required": false,
+          "description": "If true, the overlay will attempt to prevent position shifting when sitting at the top of the anchor."
+        },
+        {
+          "name": "variant",
+          "type": "ResponsiveValue<\"anchored\", \"fullscreen\" | \"anchored\">",
+          "required": false,
+          "description": "Optional prop to set variant for narrow screen sizes"
+        },
+        {
+          "name": "displayCloseButton",
+          "type": "false | true",
+          "required": false,
+          "description": "Optional prop to display a close button in the overlay."
+        },
+        {
+          "name": "height",
+          "type": "\"medium\" | \"large\" | \"xlarge\" | \"small\" | \"xsmall\" | \"auto\" | \"initial\" | \"fit-content\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "width",
+          "type": "\"medium\" | \"large\" | \"xlarge\" | \"small\" | \"auto\" | \"xxlarge\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "renderAnchor",
+          "type": "<T extends Omit<React.HTMLAttributes<HTMLElement>, \"aria-label\" | \"aria-labelledby\">>(props: T) => Element",
+          "required": true,
+          "description": "A custom function component used to render the anchor element.\nWill receive the selected text as `children` prop when an item is activated.\nA custom function component used to render the anchor element.\nWhen renderAnchor is null, an anchorRef is required."
+        },
+        {
+          "name": "anchorRef",
+          "type": "RefObject<HTMLElement>",
+          "required": false,
+          "description": "An override to the internal ref that will be spread on to the renderAnchor\nAn override to the internal renderAnchor ref that will be used to position the overlay.\nWhen renderAnchor is null this can be used to make an anchor that is detached from ActionMenu."
+        },
+        {
+          "name": "anchorId",
+          "type": "string",
+          "required": false,
+          "description": "An override to the internal id that will be spread on to the renderAnchor"
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Announce",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "As",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "AriaAlert",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "As",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "AriaStatus",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "As",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Autocomplete",
+      "description": "",
+      "props": [
+        {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": [
+        "Context",
+        "Input",
+        "Menu",
+        "Overlay"
+      ]
+    },
+    {
+      "name": "Avatar",
+      "description": "",
+      "props": [
+        {
+          "name": "size",
+          "type": "number | ResponsiveValue<number>",
+          "required": false,
+          "description": "Sets the width and height of the avatar."
+        },
+        {
+          "name": "square",
+          "type": "false | true",
+          "required": false,
+          "description": "Sets the shape of the avatar to a square if true. If false, the avatar will be circular."
+        },
+        {
+          "name": "src",
+          "type": "string",
+          "required": true,
+          "description": "URL of the avatar image."
+        },
+        {
+          "name": "alt",
+          "type": "string",
+          "required": false,
+          "description": "Provide alt text when the Avatar is used without the user's name next to it."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Additional class name."
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "AvatarStack",
+      "description": "",
+      "props": [
+        {
+          "name": "alignRight",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "disableExpand",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "variant",
+          "type": "\"cascade\" | \"stack\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "shape",
+          "type": "\"circle\" | \"square\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "size",
+          "type": "number | ResponsiveValue<number>",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "children",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Banner",
+      "description": "",
+      "props": [
+        {
+          "name": "description",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "hideTitle",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "leadingVisual",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "primaryAction",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "secondaryAction",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "variant",
+          "type": "\"success\" | \"critical\" | \"info\" | \"upsell\" | \"warning\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "layout",
+          "type": "\"default\" | \"compact\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "actionsLayout",
+          "type": "\"inline\" | \"default\" | \"stacked\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "flush",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": [
+        "Title",
+        "Description",
+        "PrimaryAction",
+        "SecondaryAction"
+      ]
+    },
+    {
+      "name": "Blankslate",
+      "description": "",
+      "props": [
+        {
+          "name": "border",
+          "type": "false | true",
+          "required": false,
+          "description": "Add a border around this component"
+        },
+        {
+          "name": "narrow",
+          "type": "false | true",
+          "required": false,
+          "description": "Constrain the maximum width of this component"
+        },
+        {
+          "name": "spacious",
+          "type": "false | true",
+          "required": false,
+          "description": "Increase the padding of this component"
+        },
+        {
+          "name": "size",
+          "type": "\"medium\" | \"large\" | \"small\"",
+          "required": false,
+          "description": "Specify the size of this component"
+        }
+      ],
+      "subComponents": [
+        "Visual",
+        "Heading",
+        "Description",
+        "PrimaryAction",
+        "SecondaryAction"
+      ]
+    },
+    {
+      "name": "BranchName",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "As",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Breadcrumb",
+      "description": "",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Optional class name for the breadcrumbs container."
+        },
+        {
+          "name": "overflow",
+          "type": "\"menu\" | \"wrap\" | \"menu-with-root\"",
+          "required": false,
+          "description": "Controls the overflow behavior of the breadcrumbs.\nBy default all overflowing crumbs will \"wrap\" in the given space taking up extra height.\nIn the \"menu\" option we'll see the overflowing crumbs as part of a menu like dropdown instead of the root breadcrumb.\nIn \"menu-with-root\" we see that instead of the root, the menu button will take the place of the next breadcrumb."
+        },
+        {
+          "name": "variant",
+          "type": "\"normal\" | \"spacious\"",
+          "required": false,
+          "description": "Controls the visual variant of the breadcrumbs.\nBy default, the breadcrumbs will have a normal appearance.\nIn the \"spacious\" option, the breadcrumbs will have increased padding and a more relaxed layout."
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "Allows passing of CSS custom properties to the breadcrumbs container."
+        }
+      ],
+      "subComponents": [
+        "Item"
+      ]
+    },
+    {
+      "name": "Breadcrumbs",
+      "description": "",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Optional class name for the breadcrumbs container."
+        },
+        {
+          "name": "overflow",
+          "type": "\"menu\" | \"wrap\" | \"menu-with-root\"",
+          "required": false,
+          "description": "Controls the overflow behavior of the breadcrumbs.\nBy default all overflowing crumbs will \"wrap\" in the given space taking up extra height.\nIn the \"menu\" option we'll see the overflowing crumbs as part of a menu like dropdown instead of the root breadcrumb.\nIn \"menu-with-root\" we see that instead of the root, the menu button will take the place of the next breadcrumb."
+        },
+        {
+          "name": "variant",
+          "type": "\"normal\" | \"spacious\"",
+          "required": false,
+          "description": "Controls the visual variant of the breadcrumbs.\nBy default, the breadcrumbs will have a normal appearance.\nIn the \"spacious\" option, the breadcrumbs will have increased padding and a more relaxed layout."
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "Allows passing of CSS custom properties to the breadcrumbs container."
+        }
+      ],
+      "subComponents": [
+        "Item"
+      ]
+    },
+    {
+      "name": "Button",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "ButtonBase",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "ButtonGroup",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Checkbox",
+      "description": "",
+      "props": [
+        {
+          "name": "value",
+          "type": "string | string & readonly string[]",
+          "required": false,
+          "description": "A unique value that is never shown to the user.\nUsed during form submission and to identify which checkbox inputs are selected"
+        },
+        {
+          "name": "disabled",
+          "type": "false | true",
+          "required": false,
+          "description": "Apply inactive visual appearance to the checkbox"
+        },
+        {
+          "name": "required",
+          "type": "false | true",
+          "required": false,
+          "description": "Indicates whether the checkbox must be checked"
+        },
+        {
+          "name": "validationStatus",
+          "type": "\"error\" | \"success\"",
+          "required": false,
+          "description": "Only used to inform ARIA attributes. Individual checkboxes do not have validation styles."
+        },
+        {
+          "name": "indeterminate",
+          "type": "false | true",
+          "required": false,
+          "description": "Apply indeterminate visual appearance to the checkbox"
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "CheckboxGroup",
+      "description": "",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Class name for custom styling"
+        },
+        {
+          "name": "disabled",
+          "type": "false | true",
+          "required": false,
+          "description": "Whether the input group allows user input"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "description": "The unique identifier for this input group. Used to associate the label, validation text, and caption text.\nYou may want a custom ID to make it easier to select elements in integration tests."
+        },
+        {
+          "name": "required",
+          "type": "false | true",
+          "required": false,
+          "description": "If true, the user must make a selection before the owning form can be submitted"
+        }
+      ],
+      "subComponents": [
+        "Caption",
+        "Label",
+        "Validation"
+      ]
+    },
+    {
+      "name": "CircleBadge",
+      "description": "",
+      "props": [],
+      "subComponents": [
+        "Icon"
+      ]
+    },
+    {
+      "name": "ConfirmationDialog",
+      "description": "",
+      "props": [
+        {
+          "name": "title",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": true,
+          "description": "Required. The title of the ConfirmationDialog. This is usually a brief\nquestion."
+        },
+        {
+          "name": "cancelButtonContent",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": false,
+          "description": "The text to use for the cancel button. Default: \"Cancel\"."
+        },
+        {
+          "name": "confirmButtonContent",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": false,
+          "description": "The text to use for the confirm button. Default: \"OK\"."
+        },
+        {
+          "name": "confirmButtonType",
+          "type": "\"normal\" | \"primary\" | \"danger\"",
+          "required": false,
+          "description": "The type of button to use for the confirm button. Default: Button."
+        },
+        {
+          "name": "cancelButtonLoading",
+          "type": "false | true",
+          "required": false,
+          "description": "Whether the cancel button is in a loading state. Default: false."
+        },
+        {
+          "name": "confirmButtonLoading",
+          "type": "false | true",
+          "required": false,
+          "description": "Whether the confirm button is in a loading state. Default: false."
+        },
+        {
+          "name": "overrideButtonFocus",
+          "type": "\"cancel\" | \"confirm\"",
+          "required": false,
+          "description": "Overrides the button that should be initially focused when the dialog is opened. By default, the confirm button\nis focused initially unless it is a dangerous action, in which case the cancel button is focused. This should\nrarely be overridden, in order to ensure that the user does not accidentally confirm a dangerous action."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Additional class names to apply to the dialog"
+        },
+        {
+          "name": "width",
+          "type": "\"medium\" | \"large\" | \"xlarge\" | \"small\"",
+          "required": false,
+          "description": "The width of the dialog.\nsmall: 296px\nmedium: 320px\nlarge: 480px\nxlarge: 640px"
+        },
+        {
+          "name": "height",
+          "type": "\"large\" | \"small\" | \"auto\"",
+          "required": false,
+          "description": "The height of the dialog.\nsmall: 480px\nlarge: 640px\nauto: variable based on contents"
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "CounterLabel",
+      "description": "",
+      "props": [
+        {
+          "name": "scheme",
+          "type": "\"primary\" | \"secondary\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "variant",
+          "type": "\"primary\" | \"secondary\"",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "DataTable",
+      "description": "",
+      "props": [
+        {
+          "name": "cellPadding",
+          "type": "\"condensed\" | \"normal\" | \"spacious\"",
+          "required": false,
+          "description": "Specify the amount of space that should be available around the contents of\na cell"
+        },
+        {
+          "name": "data",
+          "type": "Data[]",
+          "required": true,
+          "description": "Provide a collection of the rows which will be rendered inside of the table"
+        },
+        {
+          "name": "columns",
+          "type": "Column<Data>[]",
+          "required": true,
+          "description": "Provide the columns for the table and the fields in `data` to which they\ncorrespond"
+        },
+        {
+          "name": "initialSortColumn",
+          "type": "string | number | ObjectPaths<Data>",
+          "required": false,
+          "description": "Provide the id or field of the column by which the table is sorted. When\nusing this `prop`, the input data must be sorted by this column in\nascending order"
+        },
+        {
+          "name": "initialSortDirection",
+          "type": "\"ASC\" | \"DESC\"",
+          "required": false,
+          "description": "Provide the sort direction that the table should be sorted by on the\ncurrently sorted column"
+        },
+        {
+          "name": "externalSorting",
+          "type": "false | true",
+          "required": false,
+          "description": "When true, disables client-side sorting for all sortable columns in the\ntable. Use this when sorting is handled server-side. The `onToggleSort`\ncallback will still be fired when a sortable column header is clicked."
+        },
+        {
+          "name": "getRowId",
+          "type": "(rowData: Data) => string | number",
+          "required": false,
+          "description": "Provide a function to determine the unique identifier for each row.\nThis function allows you to customize the key used for the row.\nBy default, the table uses the `id` field from the data."
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Details",
+      "description": "",
+      "props": [],
+      "subComponents": [
+        "Summary"
+      ]
+    },
+    {
+      "name": "Dialog",
+      "description": "",
+      "props": [
+        {
+          "name": "title",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": false,
+          "description": "Title of the Dialog. Also serves as the aria-label for this Dialog."
+        },
+        {
+          "name": "subtitle",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": false,
+          "description": "The Dialog's subtitle. Optional. Rendered below the title in smaller\ntype with less contrast. Also serves as the aria-describedby for this\nDialog."
+        },
+        {
+          "name": "renderHeader",
+          "type": "FunctionComponent<PropsWithChildren<DialogHeaderProps>>",
+          "required": false,
+          "description": "Provide a custom renderer for the dialog header. This content is\nrendered directly into the dialog body area, full bleed from edge\nto edge, top to the start of the body element.\n\nWarning: using a custom renderer may violate Primer UX principles."
+        },
+        {
+          "name": "renderBody",
+          "type": "FunctionComponent<PropsWithChildren<DialogProps>>",
+          "required": false,
+          "description": "Provide a custom render function for the dialog body. This content is\nrendered directly into the dialog body area, full bleed from edge to\nedge, header to footer.\n\nWarning: using a custom renderer may violate Primer UX principles."
+        },
+        {
+          "name": "renderFooter",
+          "type": "FunctionComponent<PropsWithChildren<DialogProps>>",
+          "required": false,
+          "description": "Provide a custom render function for the dialog footer. This content is\nrendered directly into the dialog footer area, full bleed from edge to\nedge, end of the body element to bottom.\n\nWarning: using a custom renderer may violate Primer UX principles."
+        },
+        {
+          "name": "footerButtons",
+          "type": "DialogButtonProps[]",
+          "required": false,
+          "description": "Specifies the buttons to be rendered in the Dialog footer."
+        },
+        {
+          "name": "role",
+          "type": "\"dialog\" | \"alertdialog\"",
+          "required": false,
+          "description": "Default: \"dialog\". The ARIA role to assign to this dialog."
+        },
+        {
+          "name": "width",
+          "type": "\"medium\" | \"large\" | \"xlarge\" | \"small\"",
+          "required": false,
+          "description": "The width of the dialog.\nsmall: 296px\nmedium: 320px\nlarge: 480px\nxlarge: 640px"
+        },
+        {
+          "name": "height",
+          "type": "\"large\" | \"small\" | \"auto\"",
+          "required": false,
+          "description": "The height of the dialog.\nsmall: 296x480\nlarge: 480x640\nauto: variable based on contents"
+        },
+        {
+          "name": "position",
+          "type": "\"center\" | \"left\" | \"right\" | ResponsiveValue<\"center\" | \"left\" | \"right\" | \"bottom\" | \"fullscreen\">",
+          "required": false,
+          "description": "The position of the dialog"
+        },
+        {
+          "name": "align",
+          "type": "\"center\" | \"top\" | \"bottom\"",
+          "required": false,
+          "description": "The vertical alignment of the dialog. Only applies when position is 'center' (the default).\ntop: positions the Dialog ~4rem from the top of the screen, horizontally centered\ncenter: (default) vertically centers the Dialog on the screen\nbottom: positions the Dialog near the bottom of the screen, horizontally centered"
+        },
+        {
+          "name": "returnFocusRef",
+          "type": "RefObject<HTMLElement>",
+          "required": false,
+          "description": "Return focus to this element when the Dialog closes,\ninstead of the element that had focus immediately before the Dialog opened"
+        },
+        {
+          "name": "initialFocusRef",
+          "type": "RefObject<HTMLElement>",
+          "required": false,
+          "description": "The element to focus when the Dialog opens"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Additional class names to apply to the dialog"
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "Additional styles to apply to the dialog"
+        },
+        {
+          "name": "children",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": [
+        "Header",
+        "Title",
+        "Subtitle",
+        "Body",
+        "Footer",
+        "Buttons",
+        "CloseButton"
+      ]
+    },
+    {
+      "name": "FilteredActionList",
+      "description": "",
+      "props": [
+        {
+          "name": "loading",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "loadingType",
+          "type": "FilteredActionListLoadingType",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "placeholderText",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "filterValue",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "scrollContainerRef",
+          "type": "(instance: HTMLDivElement) => void | (() => VoidOrUndefinedOnly) | RefObject<HTMLDivElement>",
+          "required": false,
+          "description": "A ref assigned to the scrollable container wrapping the ActionList"
+        },
+        {
+          "name": "textInputProps",
+          "type": "Partial<Omit<TextInputProps, \"onChange\">>",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "inputRef",
+          "type": "RefObject<HTMLInputElement>",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "message",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "messageText",
+          "type": "{ title: string; description: string; }",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "announcementsEnabled",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "fullScreenOnNarrow",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "actionListProps",
+          "type": "Partial<ActionListProps>",
+          "required": false,
+          "description": "Additional props to pass to the underlying ActionList component."
+        },
+        {
+          "name": "focusOutBehavior",
+          "type": "\"stop\" | \"wrap\"",
+          "required": false,
+          "description": "Determines how keyboard focus behaves when navigating beyond the first or last item in the list.\n\n- `'stop'`: Focus will stop at the first or last item; further navigation in that direction will not move focus.\n- `'wrap'`: Focus will wrap around to the opposite end of the list when navigating past the boundaries (e.g., pressing Down on the last item moves focus to the first)."
+        },
+        {
+          "name": "disableSelectOnHover",
+          "type": "false | true",
+          "required": false,
+          "description": "If true, disables selecting items when hovering over them with the mouse."
+        },
+        {
+          "name": "setInitialFocus",
+          "type": "false | true",
+          "required": false,
+          "description": "If true, focus remains where it was and the user must interact to move focus.\nIf false, sets initial focus to the first item in the list when rendered, enabling keyboard navigation immediately."
+        },
+        {
+          "name": "focusPrependedElements",
+          "type": "false | true",
+          "required": false,
+          "description": "Set to true to allow focus to move to elements that are dynamically prepended to the container.\nDefault is false."
+        },
+        {
+          "name": "scrollBehavior",
+          "type": "\"auto\" | \"instant\" | \"smooth\"",
+          "required": false,
+          "description": "Determines the scroll behavior of the container when an item is focused."
+        },
+        {
+          "name": "virtualized",
+          "type": "false | true",
+          "required": false,
+          "description": "If true, enables client-side list virtualization. Only the visible items (plus a small\noverscan buffer) are rendered in the DOM, dramatically improving performance for large lists.\n\nThis is a purely client-side optimization — it does not require server-side pagination.\nThe consumer can still pass all items at once; the component will only render what is visible.\n\nRecommended for lists with more than 100 items.\n\nNote: Has no effect when `groupMetadata` is provided, as grouped lists are\ntypically small enough not to need virtualization."
+        },
+        {
+          "name": "groupMetadata",
+          "type": "((Omit<GroupProps, \"items\"> | Omit<Partial<GroupProps> & { renderItem?: RenderItemFn; renderGroup?: FCWithSlotMarker<PropsWithChildren<ActionListGroupProps>>; }, \"items\">) & { ...; })[]",
+          "required": false,
+          "description": "A collection of `Group` props (except `items`), plus a unique group identifier\nand `Group`-level custom `Item` or `Group` renderers."
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Flash",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "FormControl",
+      "description": "",
+      "props": [
+        {
+          "name": "children",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "type": "false | true",
+          "required": false,
+          "description": "Whether the control allows user input"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "description": "The unique identifier for this control. Used to associate the label, validation text, and caption text"
+        },
+        {
+          "name": "required",
+          "type": "false | true",
+          "required": false,
+          "description": "If true, the user must specify a value for the input before the owning form can be submitted"
+        },
+        {
+          "name": "layout",
+          "type": "\"horizontal\" | \"vertical\"",
+          "required": false,
+          "description": "The direction the content flows.\nVertical layout is used by default, and horizontal layout is used for checkbox and radio inputs."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": [
+        "Caption",
+        "Label",
+        "LeadingVisual",
+        "Validation"
+      ]
+    },
+    {
+      "name": "Header",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": [
+        "Link",
+        "Item"
+      ]
+    },
+    {
+      "name": "Heading",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Hidden",
+      "description": "",
+      "props": [
+        {
+          "name": "when",
+          "type": "\"narrow\" | \"regular\" | \"wide\" | Viewport[]",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "children",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "IconButton",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "InlineMessage",
+      "description": "",
+      "props": [
+        {
+          "name": "size",
+          "type": "\"medium\" | \"small\"",
+          "required": false,
+          "description": "Specify the size of the InlineMessage"
+        },
+        {
+          "name": "variant",
+          "type": "\"success\" | \"critical\" | \"warning\" | \"unavailable\"",
+          "required": true,
+          "description": "Specify the type of the InlineMessage"
+        },
+        {
+          "name": "leadingVisual",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | ComponentClass<any, any>",
+          "required": false,
+          "description": "A custom leading visual (icon or other element) to display instead of the default variant icon."
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "IssueLabel",
+      "description": "",
+      "props": [
+        {
+          "name": "fillColor",
+          "type": "`#${string}`",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "variant",
+          "type": "\"auburn\" | \"blue\" | \"brown\" | \"coral\" | \"cyan\" | \"gray\" | \"green\" | \"indigo\" | \"lemon\" | \"lime\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "as",
+          "type": "never",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "href",
+          "type": "never",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "IssueLabelToken",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "KeybindingHint",
+      "description": "Indicates the presence of an available keybinding.",
+      "props": [
+        {
+          "name": "keys",
+          "type": "string",
+          "required": true,
+          "description": "The keys involved in this keybinding. These should be the full names of the keys as would\nbe returned by `KeyboardEvent.key` (e.g. \"Control\", \"Shift\", \"ArrowUp\", \"a\", etc.).\n\nCombine keys with the \"+\" character to form chords. To represent the \"+\" key, use \"Plus\".\n\nCombine chords/keys with \" \" to form sequences that should be pressed one after the other. For example, \"a b\"\nrepresents \"a then b\". To represent the \" \" key, use \"Space\".\n\nThe fake key name \"Mod\" can be used to represent \"Command\" on macOS and \"Control\" on other platforms.\n\nSee https://github.com/github/hotkey for format details."
+        },
+        {
+          "name": "format",
+          "type": "\"full\" | \"condensed\"",
+          "required": false,
+          "description": "Control the display format. Condensed is most useful in menus and tooltips, while\nthe full form is better for prose."
+        },
+        {
+          "name": "variant",
+          "type": "\"normal\" | \"onEmphasis\" | \"onPrimary\"",
+          "required": false,
+          "description": "Set to `onEmphasis` for display on emphasis colors, and `onPrimary` for display on primary buttons."
+        },
+        {
+          "name": "size",
+          "type": "\"normal\" | \"small\"",
+          "required": false,
+          "description": "Control the size of the hint."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Additional class name to apply to the hint."
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Label",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "LabelGroup",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": false,
+          "description": "Customize the element type of the rendered container"
+        },
+        {
+          "name": "overflowStyle",
+          "type": "\"inline\" | \"overlay\"",
+          "required": false,
+          "description": "How hidden tokens should be shown. `'inline'` shows the hidden tokens after the visible tokens. `'overlay'` shows all tokens in an overlay that appears on top of the visible tokens."
+        },
+        {
+          "name": "visibleChildCount",
+          "type": "number | \"auto\"",
+          "required": false,
+          "description": "How many tokens to show. `'auto'` truncates the tokens to fit in the parent container. Passing a number will truncate after that number tokens. If this is undefined, tokens will never be truncated."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Link",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "As",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "LinkButton",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "NavList",
+      "description": "",
+      "props": [
+        {
+          "name": "children",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": [
+        "Description",
+        "Item",
+        "SubNav",
+        "LeadingVisual",
+        "TrailingVisual",
+        "TrailingAction",
+        "Divider",
+        "Group",
+        "GroupExpand",
+        "GroupHeading"
+      ]
+    },
+    {
+      "name": "Overlay",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "PageHeader",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": [
+        "ContextArea",
+        "ParentLink",
+        "ContextBar",
+        "TitleArea",
+        "ContextAreaActions",
+        "LeadingAction",
+        "Breadcrumbs",
+        "LeadingVisual",
+        "Title",
+        "TrailingVisual",
+        "TrailingAction",
+        "Actions",
+        "Description",
+        "Navigation"
+      ]
+    },
+    {
+      "name": "PageLayout",
+      "description": "",
+      "props": [
+        {
+          "name": "containerWidth",
+          "type": "\"full\" | \"medium\" | \"large\" | \"xlarge\"",
+          "required": false,
+          "description": "The maximum width of the page container"
+        },
+        {
+          "name": "padding",
+          "type": "\"none\" | \"condensed\" | \"normal\"",
+          "required": false,
+          "description": "The spacing between the outer edges of the page container and the viewport"
+        },
+        {
+          "name": "rowGap",
+          "type": "\"none\" | \"condensed\" | \"normal\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "columnGap",
+          "type": "\"none\" | \"condensed\" | \"normal\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": [
+        "Header",
+        "Content",
+        "Pane",
+        "Sidebar",
+        "Footer"
+      ]
+    },
+    {
+      "name": "Pagination",
+      "description": "",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "pageCount",
+          "type": "number",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "currentPage",
+          "type": "number",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "hrefBuilder",
+          "type": "(n: number) => string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "marginPageCount",
+          "type": "number",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "showPages",
+          "type": "false | true | ResponsiveValue<boolean>",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "surroundingPageCount",
+          "type": "number",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "renderPage",
+          "type": "(props: PageProps) => ReactNode",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Popover",
+      "description": "",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Class name for custom styling"
+        },
+        {
+          "name": "relative",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "open",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "caret",
+          "type": "\"top\" | \"left\" | \"right\" | \"bottom\" | \"bottom-left\" | \"bottom-right\" | \"top-left\" | \"top-right\" | \"left-bottom\" | \"left-top\"",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": [
+        "Content"
+      ]
+    },
+    {
+      "name": "ProgressBar",
+      "description": "",
+      "props": [
+        {
+          "name": "bg",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "inline",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "barSize",
+          "type": "\"large\" | \"small\" | \"default\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "animated",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "progress",
+          "type": "string | number",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": [
+        "Item"
+      ]
+    },
+    {
+      "name": "Radio",
+      "description": "",
+      "props": [
+        {
+          "name": "value",
+          "type": "string | string & readonly string[]",
+          "required": true,
+          "description": "A unique value that is never shown to the user.\nUsed during form submission and to identify which radio button in a group is selected"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false,
+          "description": "Name attribute of the input element. Required for grouping radio inputs"
+        },
+        {
+          "name": "disabled",
+          "type": "false | true",
+          "required": false,
+          "description": "Apply inactive visual appearance to the radio button"
+        },
+        {
+          "name": "checked",
+          "type": "false | true",
+          "required": false,
+          "description": "Indicates whether the radio button is selected"
+        },
+        {
+          "name": "required",
+          "type": "false | true",
+          "required": false,
+          "description": "Indicates whether the radio button must be checked before the form can be submitted"
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "RadioGroup",
+      "description": "",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "The name used to identify this group of radios"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Class name for custom styling"
+        },
+        {
+          "name": "disabled",
+          "type": "false | true",
+          "required": false,
+          "description": "Whether the input group allows user input"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "description": "The unique identifier for this input group. Used to associate the label, validation text, and caption text.\nYou may want a custom ID to make it easier to select elements in integration tests."
+        },
+        {
+          "name": "required",
+          "type": "false | true",
+          "required": false,
+          "description": "If true, the user must make a selection before the owning form can be submitted"
+        }
+      ],
+      "subComponents": [
+        "Caption",
+        "Label",
+        "Validation"
+      ]
+    },
+    {
+      "name": "RelativeTime",
+      "description": "",
+      "props": [],
+      "subComponents": []
+    },
+    {
+      "name": "ScrollableRegion",
+      "description": "",
+      "props": [],
+      "subComponents": []
+    },
+    {
+      "name": "SegmentedControl",
+      "description": "",
+      "props": [
+        {
+          "name": "fullWidth",
+          "type": "false | true | ResponsiveValue<boolean>",
+          "required": false,
+          "description": "Whether the control fills the width of its parent"
+        },
+        {
+          "name": "size",
+          "type": "\"medium\" | \"small\"",
+          "required": false,
+          "description": "The size of the buttons"
+        },
+        {
+          "name": "variant",
+          "type": "\"default\" | Partial<Record<WidthOnlyViewportRangeKeys, \"default\" | \"hideLabels\" | \"dropdown\">>",
+          "required": false,
+          "description": "Configure alternative ways to render the control when it gets rendered in tight spaces"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": [
+        "Button",
+        "IconButton"
+      ]
+    },
+    {
+      "name": "Select",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": [
+        "Option",
+        "OptGroup"
+      ]
+    },
+    {
+      "name": "SelectPanel",
+      "description": "",
+      "props": [
+        {
+          "name": "title",
+          "type": "string | ReactElement<any, string | JSXElementConstructor<any>>",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "subtitle",
+          "type": "string | ReactElement<any, string | JSXElementConstructor<any>>",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "inputLabel",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "overlayProps",
+          "type": "Partial<Omit<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, \"height\" | \"width\" | \"style\" | ... 5 more ... | keyof ContainerProps> & Omit<...> & ContainerProps & { ...; }>",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "initialLoadingType",
+          "type": "\"spinner\" | \"skeleton\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "notice",
+          "type": "{ text: string | ReactElement<any, string | JSXElementConstructor<any>>; variant: \"error\" | \"info\" | \"warning\"; }",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "message",
+          "type": "{ title: string; body: string | ReactElement<any, string | JSXElementConstructor<any>>; variant: \"error\" | \"warning\" | \"empty\"; icon?: ComponentType<...>; action?: ReactElement<...>; }",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "footer",
+          "type": "string | ReactElement<any, string | JSXElementConstructor<any>>",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "showSelectedOptionsFirst",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "disableFullscreenOnNarrow",
+          "type": "false | true",
+          "required": false,
+          "description": "Whether to disable fullscreen behavior on narrow viewports.\nWhen `true`, the panel will maintain its anchored position regardless of viewport size.\nWhen `false`, the panel will go fullscreen on narrow viewports (if feature flag is enabled)."
+        },
+        {
+          "name": "showSelectAll",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "focusPrependedElements",
+          "type": "false | true",
+          "required": false,
+          "description": "Set to true to allow focus to move to elements that are dynamically prepended to the container.\nDefault is false."
+        },
+        {
+          "name": "focusOutBehavior",
+          "type": "\"stop\" | \"wrap\"",
+          "required": false,
+          "description": "Determines how keyboard focus behaves when navigating beyond the first or last item in the list.\n\n- `'stop'`: Focus will stop at the first or last item; further navigation in that direction will not move focus.\n- `'wrap'`: Focus will wrap around to the opposite end of the list when navigating past the boundaries (e.g., pressing Down on the last item moves focus to the first)."
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "description": "id to attach to the base DOM node of the list"
+        },
+        {
+          "name": "role",
+          "type": "\"none\" | \"button\" | \"form\" | \"list\" | \"article\" | \"dialog\" | \"figure\" | \"img\" | \"link\" | \"main\"",
+          "required": false,
+          "description": "The ARIA role describing the function of `List` component. `listbox` is a common value."
+        },
+        {
+          "name": "loading",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "items",
+          "type": "ItemInput[]",
+          "required": true,
+          "description": "A collection of `Item` props and `Item`-level custom `Item` renderers."
+        },
+        {
+          "name": "renderItem",
+          "type": "RenderItemFn",
+          "required": false,
+          "description": "A `List`-level custom `Item` renderer. Every `Item` within this `List`\nwithout a `Group`-level or `Item`-level custom `Item` renderer will be\nrendered using this function component."
+        }
+      ],
+      "subComponents": [
+        "SecondaryActionButton",
+        "SecondaryActionLink"
+      ]
+    },
+    {
+      "name": "SideNav",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "variant",
+          "type": "\"normal\" | \"lightweight\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "bordered",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "children",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": [
+        "Link"
+      ]
+    },
+    {
+      "name": "SkeletonAvatar",
+      "description": "",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Class name for custom styling"
+        },
+        {
+          "name": "size",
+          "type": "number | ResponsiveValue<number>",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "square",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "SkeletonBox",
+      "description": "",
+      "props": [
+        {
+          "name": "height",
+          "type": "string | number",
+          "required": false,
+          "description": "Height of the skeleton \"box\". Accepts any valid CSS `height` value."
+        },
+        {
+          "name": "width",
+          "type": "string | number",
+          "required": false,
+          "description": "Width of the skeleton \"box\". Accepts any valid CSS `width` value."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "The className of the skeleton box"
+        },
+        {
+          "name": "delay",
+          "type": "number | \"short\" | \"long\"",
+          "required": false,
+          "description": "Controls whether and how long to delay rendering the SkeletonBox. Set to 'short' to delay by 300ms, 'long' to delay by 1000ms, or provide a custom number of milliseconds."
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "SkeletonText",
+      "description": "",
+      "props": [
+        {
+          "name": "size",
+          "type": "\"display\" | \"titleLarge\" | \"titleMedium\" | \"titleSmall\" | \"bodyLarge\" | \"bodyMedium\" | \"bodySmall\" | \"subtitle\"",
+          "required": false,
+          "description": "Size of the text that the skeleton is replacing."
+        },
+        {
+          "name": "lines",
+          "type": "number",
+          "required": false,
+          "description": "Number of lines of skeleton text to render."
+        },
+        {
+          "name": "maxWidth",
+          "type": "string | number | string & {}",
+          "required": false,
+          "description": "Maximum width that the line(s) of skeleton text can take up.  Accepts any valid CSS `max-width` value."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Class name for custom styling"
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Spinner",
+      "description": "",
+      "props": [
+        {
+          "name": "size",
+          "type": "\"medium\" | \"large\" | \"small\"",
+          "required": false,
+          "description": "Sets the width and height of the spinner."
+        },
+        {
+          "name": "srText",
+          "type": "string",
+          "required": false,
+          "description": "Sets the text conveyed by assistive technologies such as screen readers. Set to `null` if the loading state is displayed in a text node somewhere else on the page."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "delay",
+          "type": "number | false | true | \"short\" | \"long\"",
+          "required": false,
+          "description": "Controls whether and how long to delay rendering the spinner. Set to `true` to delay by 1000ms, `'short'` to delay by 300ms, `'long'` to delay by 1000ms, or provide a custom number of milliseconds."
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "SplitPageLayout",
+      "description": "",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": [
+        "Header",
+        "Content",
+        "Pane",
+        "Sidebar",
+        "Footer"
+      ]
+    },
+    {
+      "name": "Stack",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": "Customize the element type of the rendered container"
+        }
+      ],
+      "subComponents": [
+        "Item"
+      ]
+    },
+    {
+      "name": "StateLabel",
+      "description": "",
+      "props": [
+        {
+          "name": "size",
+          "type": "\"medium\" | \"small\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "variant",
+          "type": "\"normal\" | \"small\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "type": "\"open\" | \"issueOpened\" | \"pullOpened\" | \"issueClosed\" | \"issueClosedNotPlanned\" | \"pullClosed\" | \"pullMerged\" | \"draft\" | \"issueDraft\" | \"pullQueued\"",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "SubNav",
+      "description": "",
+      "props": [
+        {
+          "name": "full",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "align",
+          "type": "\"right\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "actions",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": [
+        "Link",
+        "Links"
+      ]
+    },
+    {
+      "name": "Table",
+      "description": "",
+      "props": [
+        {
+          "name": "gridTemplateColumns",
+          "type": "string | number | string & {}",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": [
+        "Container",
+        "Title",
+        "Subtitle",
+        "Actions",
+        "Divider",
+        "Skeleton",
+        "Head",
+        "Body",
+        "Header",
+        "Row",
+        "Cell",
+        "CellPlaceholder",
+        "Pagination",
+        "ErrorDialog"
+      ]
+    },
+    {
+      "name": "Tabs",
+      "description": "",
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "required": false,
+          "description": "Specify the selected tab\n`value` can only be used in the controlled variant of the component\nIf you need to use `value`, please switch to the controlled variant by removing the `defaultValue` prop."
+        },
+        {
+          "name": "defaultValue",
+          "type": "string",
+          "required": false,
+          "description": "`defaultValue` can only be used in the uncontrolled variant of the component\nIf you need to use `defaultValue`, please switch to the uncontrolled variant by removing the `value` prop.\nSpecify the default selected tab"
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Text",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "As",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Textarea",
+      "description": "",
+      "props": [
+        {
+          "name": "disabled",
+          "type": "false | true",
+          "required": false,
+          "description": "Apply inactive visual appearance to the Textarea"
+        },
+        {
+          "name": "validationStatus",
+          "type": "\"error\" | \"success\"",
+          "required": false,
+          "description": "Indicates whether the Textarea validation state"
+        },
+        {
+          "name": "block",
+          "type": "false | true",
+          "required": false,
+          "description": "Block"
+        },
+        {
+          "name": "resize",
+          "type": "\"none\" | \"both\" | \"horizontal\" | \"vertical\"",
+          "required": false,
+          "description": "Allows resizing of the textarea"
+        },
+        {
+          "name": "contrast",
+          "type": "false | true",
+          "required": false,
+          "description": "apply a high contrast color to background"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "The className to apply to the wrapper element"
+        },
+        {
+          "name": "minHeight",
+          "type": "number",
+          "required": false,
+          "description": "The minimum height of the Textarea"
+        },
+        {
+          "name": "maxHeight",
+          "type": "number",
+          "required": false,
+          "description": "The maximum height of the Textarea"
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "CSS styles to apply to the Textarea"
+        },
+        {
+          "name": "characterLimit",
+          "type": "number",
+          "required": false,
+          "description": "Optional character limit for the textarea. If provided, a character counter will be displayed below the textarea.\nWhen the limit is exceeded, validation styling will be applied."
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "TextInput",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": [
+        "Action"
+      ]
+    },
+    {
+      "name": "TextInputWithTokens",
+      "description": "",
+      "props": [
+        {
+          "name": "tokenComponent",
+          "type": "ComponentClass<any, any> | FunctionComponent<any> | ForwardRefComponent<\"button\" | \"a\" | \"span\", TokenProps>",
+          "required": false,
+          "description": "The component used to render each token"
+        },
+        {
+          "name": "maxHeight",
+          "type": "string | number | string & {}",
+          "required": false,
+          "description": "The maximum height of the component. If the content in the input exceeds this height,\nit will scroll vertically"
+        },
+        {
+          "name": "preventTokenWrapping",
+          "type": "false | true",
+          "required": false,
+          "description": "Whether tokens should render inline horizontally. By default, tokens wrap to new lines."
+        },
+        {
+          "name": "size",
+          "type": "\"medium\" | \"large\" | \"xlarge\" | \"small\"",
+          "required": false,
+          "description": "The size of the tokens and text input"
+        },
+        {
+          "name": "hideTokenRemoveButtons",
+          "type": "false | true",
+          "required": false,
+          "description": "Whether the remove buttons should be rendered in the tokens"
+        },
+        {
+          "name": "visibleTokenCount",
+          "type": "number",
+          "required": false,
+          "description": "The number of tokens to display before truncating"
+        },
+        {
+          "name": "disabled",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "width",
+          "type": "string | number",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "variant",
+          "type": "\"medium\" | \"large\" | \"small\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "loading",
+          "type": "false | true",
+          "required": false,
+          "description": "Whether the to show a loading indicator in the input"
+        },
+        {
+          "name": "icon",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "maxWidth",
+          "type": "string | number",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "leadingVisual",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | ComponentClass<any, any>",
+          "required": false,
+          "description": "A visual that renders inside the input before the typing area"
+        },
+        {
+          "name": "trailingVisual",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | ComponentClass<any, any>",
+          "required": false,
+          "description": "A visual that renders inside the input after the typing area"
+        },
+        {
+          "name": "trailingAction",
+          "type": "ReactElement<HTMLProps<HTMLButtonElement>, string | JSXElementConstructor<any>>",
+          "required": false,
+          "description": "A visual that renders inside the input after the typing area"
+        },
+        {
+          "name": "block",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "contrast",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "monospace",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "validationStatus",
+          "type": "\"error\" | \"success\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "minWidth",
+          "type": "string | number",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Timeline",
+      "description": "",
+      "props": [
+        {
+          "name": "clipSidebar",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": [
+        "Item",
+        "Badge",
+        "Body",
+        "Break"
+      ]
+    },
+    {
+      "name": "ToggleSwitch",
+      "description": "",
+      "props": [
+        {
+          "name": "defaultChecked",
+          "type": "false | true",
+          "required": false,
+          "description": "Uncontrolled - whether the switch is turned on"
+        },
+        {
+          "name": "disabled",
+          "type": "false | true",
+          "required": false,
+          "description": "Whether the switch is ready for user input"
+        },
+        {
+          "name": "loading",
+          "type": "false | true",
+          "required": false,
+          "description": "Whether the switch's value is being calculated"
+        },
+        {
+          "name": "checked",
+          "type": "false | true",
+          "required": false,
+          "description": "Whether the switch is turned on"
+        },
+        {
+          "name": "size",
+          "type": "\"medium\" | \"small\"",
+          "required": false,
+          "description": "Size of the switch"
+        },
+        {
+          "name": "statusLabelPosition",
+          "type": "\"end\" | \"start\"",
+          "required": false,
+          "description": "Whether the \"on\" and \"off\" labels should appear before or after the switch.\n**This should only be changed when the switch's alignment needs to be adjusted.** For example: It needs to be left-aligned because the label appears above it and the caption appears below it."
+        },
+        {
+          "name": "loadingLabelDelay",
+          "type": "number",
+          "required": false,
+          "description": "If the switch is in the loading state, this value controls the amount of delay in milliseconds before\nthe `loadingLabel` is announced to screen readers."
+        },
+        {
+          "name": "loadingLabel",
+          "type": "string",
+          "required": false,
+          "description": "The text to describe what is loading. It should be descriptive and not verbose.\nThis is primarily used for AT (screen readers) to convey what is currently loading."
+        },
+        {
+          "name": "buttonType",
+          "type": "\"button\" | \"reset\" | \"submit\"",
+          "required": false,
+          "description": "type of button to account for behavior when added to a form"
+        },
+        {
+          "name": "buttonLabelOn",
+          "type": "string",
+          "required": false,
+          "description": "Text to display when the toggle switch is in the 'on' position. Defaults to 'On'. Only customize this label if there is a more specific label for the context. For example, you might use 'Show' if the setting is 'Show images'."
+        },
+        {
+          "name": "buttonLabelOff",
+          "type": "string",
+          "required": false,
+          "description": "Text to display when the toggle switch is in the 'off' position. Defaults to 'Off'. Only customize this label if there is a more specific label for the context. For example, you might use 'Hide' if the setting is 'Show images'."
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Token",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Tooltip",
+      "description": "",
+      "props": [
+        {
+          "name": "direction",
+          "type": "\"s\" | \"nw\" | \"n\" | \"ne\" | \"e\" | \"se\" | \"sw\" | \"w\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "type",
+          "type": "\"label\" | \"description\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "keybindingHint",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "delay",
+          "type": "\"medium\" | \"short\" | \"long\"",
+          "required": false,
+          "description": "Delay in milliseconds before showing the tooltip"
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "TopicTag",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "As",
+          "required": false,
+          "description": "The HTML element or React component to render as the root element"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Provide a class name for styling on the outermost element"
+        }
+      ],
+      "subComponents": [
+        "Group"
+      ]
+    },
+    {
+      "name": "TreeView",
+      "description": "",
+      "props": [
+        {
+          "name": "children",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "flat",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "truncate",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": [
+        "Item",
+        "SubTree",
+        "LeadingAction",
+        "LeadingVisual",
+        "TrailingVisual",
+        "DirectoryIcon",
+        "ErrorDialog"
+      ]
+    },
+    {
+      "name": "Truncate",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "UnderlineNav",
+      "description": "",
+      "props": [
+        {
+          "name": "children",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "loadingCounters",
+          "type": "false | true",
+          "required": false,
+          "description": "loading state for all counters. It displays loading animation for individual counters (UnderlineNav.Item) until all are resolved. It is needed to prevent multiple layout shift."
+        },
+        {
+          "name": "variant",
+          "type": "\"inset\" | \"flush\"",
+          "required": false,
+          "description": "There are cases where you may not want the horizontal padding on items,\nand panels to make the tabs look horizontally aligned with the content above and below it.\nSetting this to `flush` will remove the horizontal padding on the items."
+        }
+      ],
+      "subComponents": [
+        "Item"
+      ]
+    },
+    {
+      "name": "UnderlinePanels",
+      "description": "",
+      "props": [
+        {
+          "name": "children",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": true,
+          "description": "Tabs (UnderlinePanels.Tab) and panels (UnderlinePanels.Panel) to render"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "description": "Custom string to use when generating the IDs of tabs and `aria-labelledby` for the panels"
+        },
+        {
+          "name": "loadingCounters",
+          "type": "false | true",
+          "required": false,
+          "description": "Loading state for all counters. It displays loading animation for individual counters until all are resolved. It is needed to prevent multiple layout shift."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Class name for custom styling"
+        },
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": false,
+          "description": "Element type for the tab container"
+        }
+      ],
+      "subComponents": [
+        "Panel",
+        "Tab"
+      ]
+    },
+    {
+      "name": "VisuallyHidden",
+      "description": "",
+      "props": [],
+      "subComponents": []
+    }
+  ],
+  "allNames": [
+    "ActionBar",
+    "ActionBar.Divider",
+    "ActionBar.Group",
+    "ActionBar.IconButton",
+    "ActionBar.Menu",
+    "ActionList",
+    "ActionList.Description",
+    "ActionList.Divider",
+    "ActionList.Group",
+    "ActionList.GroupHeading",
+    "ActionList.Heading",
+    "ActionList.Item",
+    "ActionList.LeadingVisual",
+    "ActionList.LinkItem",
+    "ActionList.TrailingAction",
+    "ActionList.TrailingVisual",
+    "ActionMenu",
+    "ActionMenu.Anchor",
+    "ActionMenu.Button",
+    "ActionMenu.Divider",
+    "ActionMenu.Overlay",
+    "AnchoredOverlay",
+    "Announce",
+    "AriaAlert",
+    "AriaStatus",
+    "Autocomplete",
+    "Autocomplete.Context",
+    "Autocomplete.Input",
+    "Autocomplete.Menu",
+    "Autocomplete.Overlay",
+    "Avatar",
+    "AvatarStack",
+    "Banner",
+    "Banner.Description",
+    "Banner.PrimaryAction",
+    "Banner.SecondaryAction",
+    "Banner.Title",
+    "Blankslate",
+    "Blankslate.Description",
+    "Blankslate.Heading",
+    "Blankslate.PrimaryAction",
+    "Blankslate.SecondaryAction",
+    "Blankslate.Visual",
+    "BranchName",
+    "Breadcrumb",
+    "Breadcrumb.Item",
+    "Breadcrumbs",
+    "Breadcrumbs.Item",
+    "Button",
+    "ButtonBase",
+    "ButtonGroup",
+    "Checkbox",
+    "CheckboxGroup",
+    "CheckboxGroup.Caption",
+    "CheckboxGroup.Label",
+    "CheckboxGroup.Validation",
+    "CircleBadge",
+    "CircleBadge.Icon",
+    "ConfirmationDialog",
+    "CounterLabel",
+    "DataTable",
+    "Details",
+    "Details.Summary",
+    "Dialog",
+    "Dialog.Body",
+    "Dialog.Buttons",
+    "Dialog.CloseButton",
+    "Dialog.Footer",
+    "Dialog.Header",
+    "Dialog.Subtitle",
+    "Dialog.Title",
+    "FilteredActionList",
+    "Flash",
+    "FormControl",
+    "FormControl.Caption",
+    "FormControl.Label",
+    "FormControl.LeadingVisual",
+    "FormControl.Validation",
+    "Header",
+    "Header.Item",
+    "Header.Link",
+    "Heading",
+    "Hidden",
+    "IconButton",
+    "InlineMessage",
+    "IssueLabel",
+    "IssueLabelToken",
+    "KeybindingHint",
+    "Label",
+    "LabelGroup",
+    "Link",
+    "LinkButton",
+    "NavList",
+    "NavList.Description",
+    "NavList.Divider",
+    "NavList.Group",
+    "NavList.GroupExpand",
+    "NavList.GroupHeading",
+    "NavList.Item",
+    "NavList.LeadingVisual",
+    "NavList.SubNav",
+    "NavList.TrailingAction",
+    "NavList.TrailingVisual",
+    "Overlay",
+    "PageHeader",
+    "PageHeader.Actions",
+    "PageHeader.Breadcrumbs",
+    "PageHeader.ContextArea",
+    "PageHeader.ContextAreaActions",
+    "PageHeader.ContextBar",
+    "PageHeader.Description",
+    "PageHeader.LeadingAction",
+    "PageHeader.LeadingVisual",
+    "PageHeader.Navigation",
+    "PageHeader.ParentLink",
+    "PageHeader.Title",
+    "PageHeader.TitleArea",
+    "PageHeader.TrailingAction",
+    "PageHeader.TrailingVisual",
+    "PageLayout",
+    "PageLayout.Content",
+    "PageLayout.Footer",
+    "PageLayout.Header",
+    "PageLayout.Pane",
+    "PageLayout.Sidebar",
+    "Pagination",
+    "Popover",
+    "Popover.Content",
+    "ProgressBar",
+    "ProgressBar.Item",
+    "Radio",
+    "RadioGroup",
+    "RadioGroup.Caption",
+    "RadioGroup.Label",
+    "RadioGroup.Validation",
+    "RelativeTime",
+    "ScrollableRegion",
+    "SegmentedControl",
+    "SegmentedControl.Button",
+    "SegmentedControl.IconButton",
+    "Select",
+    "Select.OptGroup",
+    "Select.Option",
+    "SelectPanel",
+    "SelectPanel.SecondaryActionButton",
+    "SelectPanel.SecondaryActionLink",
+    "SideNav",
+    "SideNav.Link",
+    "SkeletonAvatar",
+    "SkeletonBox",
+    "SkeletonText",
+    "Spinner",
+    "SplitPageLayout",
+    "SplitPageLayout.Content",
+    "SplitPageLayout.Footer",
+    "SplitPageLayout.Header",
+    "SplitPageLayout.Pane",
+    "SplitPageLayout.Sidebar",
+    "Stack",
+    "Stack.Item",
+    "StateLabel",
+    "SubNav",
+    "SubNav.Link",
+    "SubNav.Links",
+    "Table",
+    "Table.Actions",
+    "Table.Body",
+    "Table.Cell",
+    "Table.CellPlaceholder",
+    "Table.Container",
+    "Table.Divider",
+    "Table.ErrorDialog",
+    "Table.Head",
+    "Table.Header",
+    "Table.Pagination",
+    "Table.Row",
+    "Table.Skeleton",
+    "Table.Subtitle",
+    "Table.Title",
+    "Tabs",
+    "Text",
+    "TextInput",
+    "TextInput.Action",
+    "TextInputWithTokens",
+    "Textarea",
+    "Timeline",
+    "Timeline.Badge",
+    "Timeline.Body",
+    "Timeline.Break",
+    "Timeline.Item",
+    "ToggleSwitch",
+    "Token",
+    "Tooltip",
+    "TopicTag",
+    "TopicTag.Group",
+    "TreeView",
+    "TreeView.DirectoryIcon",
+    "TreeView.ErrorDialog",
+    "TreeView.Item",
+    "TreeView.LeadingAction",
+    "TreeView.LeadingVisual",
+    "TreeView.SubTree",
+    "TreeView.TrailingVisual",
+    "Truncate",
+    "UnderlineNav",
+    "UnderlineNav.Item",
+    "UnderlinePanels",
+    "UnderlinePanels.Panel",
+    "UnderlinePanels.Tab",
+    "VisuallyHidden"
+  ]
+}
