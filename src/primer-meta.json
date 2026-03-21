@@ -1,10 +1,10 @@
 {
   "version": "38.16.0",
-  "generatedAt": "2026-03-21T06:56:57.041Z",
+  "generatedAt": "2026-03-21T07:00:53.337Z",
   "components": [
     {
       "name": "ActionBar",
-      "description": "",
+      "description": "A collection of horizontally aligned IconButtons with overflow menu.",
       "props": [
         {
           "name": "size",
@@ -45,8 +45,221 @@
       ]
     },
     {
-      "name": "ActionList",
+      "name": "ActionBarGroup",
       "description": "",
+      "props": [
+        {
+          "name": "children",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "ActionBarIconButton",
+      "description": "",
+      "props": [
+        {
+          "name": "disabled",
+          "type": "false | true",
+          "required": false,
+          "description": "Disables a button. Avoid disabling buttons because it will make them inaccessible to users\nwho rely on keyboard navigation. Buttons that are disabled cannot be clicked, selected, or navigated through."
+        },
+        {
+          "name": "icon",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "unsafeDisableTooltip",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "tooltipDirection",
+          "type": "\"s\" | \"nw\" | \"n\" | \"ne\" | \"e\" | \"se\" | \"sw\" | \"w\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "keyshortcuts",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "keybindingHint",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "size",
+          "type": "\"medium\" | \"large\" | \"small\"",
+          "required": false,
+          "description": "Size of the button and fontSize of the text in the button"
+        },
+        {
+          "name": "variant",
+          "type": "\"link\" | \"default\" | \"primary\" | \"danger\" | \"invisible\"",
+          "required": false,
+          "description": "Determines the styles on a button, one of 'default' | 'primary' | 'invisible' | 'danger' | 'link'"
+        },
+        {
+          "name": "loading",
+          "type": "false | true",
+          "required": false,
+          "description": "Specify whether the button is in a loading state"
+        },
+        {
+          "name": "block",
+          "type": "false | true",
+          "required": false,
+          "description": "Allow a button to fill its container horizontally"
+        },
+        {
+          "name": "loadingAnnouncement",
+          "type": "string",
+          "required": false,
+          "description": "The content to announce to screen readers when loading"
+        },
+        {
+          "name": "inactive",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "labelWrap",
+          "type": "false | true",
+          "required": false,
+          "description": "Whether the button label should wrap to multiple lines if it is longer than the button width"
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "ActionBarMenu",
+      "description": "",
+      "props": [
+        {
+          "name": "icon",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": "Icon for the menu button"
+        },
+        {
+          "name": "items",
+          "type": "ActionBarMenuItemProps[]",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "overflowIcon",
+          "type": "\"symbol\" | \"object\" | \"none\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\"",
+          "required": false,
+          "description": "Icon displayed when the menu item is overflowing.\nIf 'none' is provided, no icon will be shown in the overflow menu."
+        },
+        {
+          "name": "returnFocusRef",
+          "type": "RefObject<HTMLElement>",
+          "required": false,
+          "description": "Target element to return focus to when the menu is closed."
+        },
+        {
+          "name": "unsafeDisableTooltip",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "tooltipDirection",
+          "type": "\"s\" | \"nw\" | \"n\" | \"ne\" | \"e\" | \"se\" | \"sw\" | \"w\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "keyshortcuts",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "keybindingHint",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "type": "false | true",
+          "required": false,
+          "description": "Disables a button. Avoid disabling buttons because it will make them inaccessible to users\nwho rely on keyboard navigation. Buttons that are disabled cannot be clicked, selected, or navigated through."
+        },
+        {
+          "name": "size",
+          "type": "\"medium\" | \"large\" | \"small\"",
+          "required": false,
+          "description": "Size of the button and fontSize of the text in the button"
+        },
+        {
+          "name": "variant",
+          "type": "\"link\" | \"default\" | \"primary\" | \"danger\" | \"invisible\"",
+          "required": false,
+          "description": "Determines the styles on a button, one of 'default' | 'primary' | 'invisible' | 'danger' | 'link'"
+        },
+        {
+          "name": "loading",
+          "type": "false | true",
+          "required": false,
+          "description": "Specify whether the button is in a loading state"
+        },
+        {
+          "name": "block",
+          "type": "false | true",
+          "required": false,
+          "description": "Allow a button to fill its container horizontally"
+        },
+        {
+          "name": "loadingAnnouncement",
+          "type": "string",
+          "required": false,
+          "description": "The content to announce to screen readers when loading"
+        },
+        {
+          "name": "inactive",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "labelWrap",
+          "type": "false | true",
+          "required": false,
+          "description": "Whether the button label should wrap to multiple lines if it is longer than the button width"
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "ActionList",
+      "description": "A vertical list of interactive actions or options.",
       "props": [
         {
           "name": "as",
@@ -70,7 +283,7 @@
     },
     {
       "name": "ActionMenu",
-      "description": "",
+      "description": "this component is syntactical sugar 🍭",
       "props": [
         {
           "name": "open",
@@ -94,7 +307,7 @@
     },
     {
       "name": "AnchoredOverlay",
-      "description": "",
+      "description": "AnchoredOverlay opens an Overlay relative to the anchor position.",
       "props": [
         {
           "name": "open",
@@ -185,7 +398,7 @@
     },
     {
       "name": "Announce",
-      "description": "",
+      "description": "Used to announce content to screen readers.",
       "props": [
         {
           "name": "as",
@@ -224,7 +437,7 @@
     },
     {
       "name": "Autocomplete",
-      "description": "",
+      "description": "Allows users to quickly filter through a list of options and pick one or more values.",
       "props": [
         {
           "name": "id",
@@ -242,7 +455,7 @@
     },
     {
       "name": "Avatar",
-      "description": "",
+      "description": "An image that represents a user or organization.",
       "props": [
         {
           "name": "size",
@@ -279,7 +492,7 @@
     },
     {
       "name": "AvatarStack",
-      "description": "",
+      "description": "Displays two or more Avatars in an inline stack.",
       "props": [
         {
           "name": "alignRight",
@@ -334,7 +547,7 @@
     },
     {
       "name": "Banner",
-      "description": "",
+      "description": "Used to highlight important information.",
       "props": [
         {
           "name": "description",
@@ -405,8 +618,91 @@
       ]
     },
     {
-      "name": "Blankslate",
+      "name": "BannerActions",
       "description": "",
+      "props": [
+        {
+          "name": "primaryAction",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "secondaryAction",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "BannerDescription",
+      "description": "",
+      "props": [],
+      "subComponents": []
+    },
+    {
+      "name": "BannerPrimaryAction",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "BannerSecondaryAction",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "BannerTitle",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "As",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "BaseOverlay",
+      "description": "An `Overlay` is a flexible floating surface, used to display transient content such as menus,\nselection options, dialogs, and more. Overlays use shadows to express elevation. The `Overlay`\ncomponent handles all behaviors needed by overlay UIs as well as the common styles that all overlays * should have.",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Blankslate",
+      "description": "Used as placeholder to tell users why content is missing.",
       "props": [
         {
           "name": "border",
@@ -443,7 +739,7 @@
     },
     {
       "name": "BranchName",
-      "description": "",
+      "description": "A label-type component that displays the name of a branch.",
       "props": [
         {
           "name": "as",
@@ -489,7 +785,7 @@
     },
     {
       "name": "Breadcrumbs",
-      "description": "",
+      "description": "Displays the current page or context within the site hierarchy.",
       "props": [
         {
           "name": "className",
@@ -522,7 +818,7 @@
     },
     {
       "name": "Button",
-      "description": "",
+      "description": "Used to initiate actions on a page or form.",
       "props": [
         {
           "name": "as",
@@ -547,7 +843,7 @@
       "subComponents": []
     },
     {
-      "name": "ButtonGroup",
+      "name": "ButtonComponent",
       "description": "",
       "props": [
         {
@@ -560,8 +856,21 @@
       "subComponents": []
     },
     {
+      "name": "ButtonGroup",
+      "description": "Renders a series of buttons.",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
       "name": "Checkbox",
-      "description": "",
+      "description": "A form control for single and multiple selections.",
       "props": [
         {
           "name": "value",
@@ -598,7 +907,7 @@
     },
     {
       "name": "CheckboxGroup",
-      "description": "",
+      "description": "Renders a set of Checkboxes.",
       "props": [
         {
           "name": "className",
@@ -633,7 +942,7 @@
     },
     {
       "name": "CircleBadge",
-      "description": "",
+      "description": "Visually connects logos of third-party services.",
       "props": [],
       "subComponents": [
         "Icon"
@@ -641,7 +950,7 @@
     },
     {
       "name": "ConfirmationDialog",
-      "description": "",
+      "description": "Props to customize the ConfirmationDialog.",
       "props": [
         {
           "name": "title",
@@ -707,8 +1016,51 @@
       "subComponents": []
     },
     {
-      "name": "CounterLabel",
+      "name": "Content",
       "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": false,
+          "description": "Provide an optional element type for the outermost element rendered by the component."
+        },
+        {
+          "name": "width",
+          "type": "\"full\" | \"medium\" | \"large\" | \"xlarge\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "padding",
+          "type": "\"none\" | \"condensed\" | \"normal\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "hidden",
+          "type": "false | true | ResponsiveValue<boolean>",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "CounterLabel",
+      "description": "Adds a count to navigational elements and buttons.",
       "props": [
         {
           "name": "scheme",
@@ -726,8 +1078,14 @@
       "subComponents": []
     },
     {
-      "name": "DataTable",
+      "name": "CustomSortStrategy",
       "description": "",
+      "props": [],
+      "subComponents": []
+    },
+    {
+      "name": "DataTable",
+      "description": "A 2-dimensional data structure where each row is an item and each column is a data point.",
       "props": [
         {
           "name": "cellPadding",
@@ -775,8 +1133,39 @@
       "subComponents": []
     },
     {
-      "name": "Details",
+      "name": "Description",
       "description": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "\"block\" | \"inline\"",
+          "required": false,
+          "description": "Secondary text style variations.\n\n- `\"inline\"` - Secondary text is positioned beside primary text.\n- `\"block\"` - Secondary text is positioned below primary text."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "truncate",
+          "type": "false | true",
+          "required": false,
+          "description": "Whether the inline description should truncate the text on overflow."
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Details",
+      "description": "A styled component to enhance the native <details> element.",
       "props": [],
       "subComponents": [
         "Summary"
@@ -784,7 +1173,7 @@
     },
     {
       "name": "Dialog",
-      "description": "",
+      "description": "Props that characterize a button to be rendered into the footer of\na Dialog.",
       "props": [
         {
           "name": "title",
@@ -894,8 +1283,40 @@
       ]
     },
     {
-      "name": "FilteredActionList",
+      "name": "Divider",
+      "description": "Visually separates `Items` or `Groups` in an `ActionList`.",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "ErrorDialog",
       "description": "",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": false,
+          "description": "Provide an optional title for the dialog"
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "FilteredActionList",
+      "description": "An ActionList with built-in filtering.",
       "props": [
         {
           "name": "loading",
@@ -1021,8 +1442,27 @@
       "subComponents": []
     },
     {
-      "name": "Flash",
+      "name": "FilteredActionListBodyLoader",
       "description": "",
+      "props": [
+        {
+          "name": "loadingType",
+          "type": "FilteredActionListLoadingType",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Flash",
+      "description": "Used to inform users of successful or pending actions.",
       "props": [
         {
           "name": "as",
@@ -1034,8 +1474,51 @@
       "subComponents": []
     },
     {
-      "name": "FormControl",
+      "name": "Footer",
       "description": "",
+      "props": [
+        {
+          "name": "padding",
+          "type": "\"none\" | \"condensed\" | \"normal\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "divider",
+          "type": "\"none\" | \"line\" | ResponsiveValue<\"none\" | \"line\", \"none\" | \"line\" | \"filled\">",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "dividerWhenNarrow",
+          "type": "\"none\" | \"line\" | \"filled\" | \"inherit\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "hidden",
+          "type": "false | true | ResponsiveValue<boolean>",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "FormControl",
+      "description": "Displays a labelled input and optionally associated validation and hint text.",
       "props": [
         {
           "name": "children",
@@ -1088,8 +1571,150 @@
       ]
     },
     {
-      "name": "Header",
+      "name": "FormControlCaption",
       "description": "",
+      "props": [
+        {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "FormControlContextProvider",
+      "description": "",
+      "props": [],
+      "subComponents": []
+    },
+    {
+      "name": "Group",
+      "description": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "\"filled\" | \"subtle\"",
+          "required": false,
+          "description": "Style variations. Usage is discretionary.\n\n- `\"filled\"` - Superimposed on a background, offset from nearby content\n- `\"subtle\"` - Relatively less offset from nearby content"
+        },
+        {
+          "name": "auxiliaryText",
+          "type": "string",
+          "required": false,
+          "description": "Secondary text which provides additional information about a `Group`."
+        },
+        {
+          "name": "selectionVariant",
+          "type": "false | \"multiple\" | \"radio\" | \"single\"",
+          "required": false,
+          "description": "Whether multiple Items or a single Item can be selected in the Group. Overrides value on ActionList root."
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "GroupExpand",
+      "description": "",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "pages",
+          "type": "number",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "items",
+          "type": "GroupItem[]",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "renderItem",
+          "type": "(item: GroupItem) => ReactNode",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "GroupHeading",
+      "description": "Heading of  a `Group`.\n\nAs default, the role of ActionList is \"list\" and therefore group heading is rendered as a proper heading tag.\nIf the role is \"listbox\" or \"menu\" (ActionMenu), the group heading is rendered as a div with presentation role and it is\nhidden from the accessibility tree due to the limitation of listbox children. https://w3c.github.io/aria/#listbox\ngroups under menu or listbox are labelled by `aria-label`",
+      "props": [
+        {
+          "name": "variant",
+          "type": "\"filled\" | \"subtle\"",
+          "required": false,
+          "description": "Style variations. Usage is discretionary.\n\n- `\"filled\"` - Superimposed on a background, offset from nearby content\n- `\"subtle\"` - Relatively less offset from nearby content"
+        },
+        {
+          "name": "auxiliaryText",
+          "type": "string",
+          "required": false,
+          "description": "Secondary text which provides additional information about a `Group`."
+        },
+        {
+          "name": "size",
+          "type": "\"medium\" | \"large\" | \"small\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "visuallyHidden",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "as",
+          "type": "\"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "headingWrapElement",
+          "type": "\"div\" | \"li\"",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Header",
+      "description": "Used to create a header for a page.",
       "props": [
         {
           "name": "as",
@@ -1105,7 +1730,7 @@
     },
     {
       "name": "Heading",
-      "description": "",
+      "description": "Defines the hierarchical structure and importance of the content.",
       "props": [
         {
           "name": "as",
@@ -1149,7 +1774,7 @@
     },
     {
       "name": "IconButton",
-      "description": "",
+      "description": "Used for buttons that show an icon in place of a text label.",
       "props": [
         {
           "name": "as",
@@ -1162,7 +1787,7 @@
     },
     {
       "name": "InlineMessage",
-      "description": "",
+      "description": "Used to inform the user about the result of an action within the content.",
       "props": [
         {
           "name": "size",
@@ -1230,6 +1855,97 @@
       "subComponents": []
     },
     {
+      "name": "Item",
+      "description": "",
+      "props": [
+        {
+          "name": "children",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "selected",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "active",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "variant",
+          "type": "\"default\" | \"danger\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "size",
+          "type": "\"medium\" | \"large\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "role",
+          "type": "\"none\" | \"button\" | \"form\" | \"list\" | \"article\" | \"dialog\" | \"figure\" | \"img\" | \"link\" | \"main\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "inactiveText",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "loading",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "groupId",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "handleAddItem",
+          "type": "(item: FC<PropsWithChildren<{ onClick?: (event: MouseEvent<HTMLElement, MouseEvent>) => void; onKeyPress?: (event: KeyboardEvent<HTMLElement>) => void; ... 5 more ...; className?: string; }>>) => void",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "as",
+          "type": "As",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
       "name": "KeybindingHint",
       "description": "Indicates the presence of an available keybinding.",
       "props": [
@@ -1268,7 +1984,7 @@
     },
     {
       "name": "Label",
-      "description": "",
+      "description": "Used to add contextual metadata to a design.",
       "props": [
         {
           "name": "as",
@@ -1281,7 +1997,7 @@
     },
     {
       "name": "LabelGroup",
-      "description": "",
+      "description": "Layout constraints for groups of Labels.",
       "props": [
         {
           "name": "as",
@@ -1311,8 +2027,14 @@
       "subComponents": []
     },
     {
-      "name": "Link",
+      "name": "LeadingVisual",
       "description": "",
+      "props": [],
+      "subComponents": []
+    },
+    {
+      "name": "Link",
+      "description": "Used to apply styles to hyperlink text.",
       "props": [
         {
           "name": "as",
@@ -1337,8 +2059,40 @@
       "subComponents": []
     },
     {
-      "name": "NavList",
+      "name": "LinkItem",
       "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "List",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "As",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "MenuCloseHandler",
+      "description": "",
+      "props": [],
+      "subComponents": []
+    },
+    {
+      "name": "NavList",
+      "description": "Renders a vertical list of navigation links.",
       "props": [
         {
           "name": "children",
@@ -1362,7 +2116,7 @@
     },
     {
       "name": "Overlay",
-      "description": "",
+      "description": "Codifies design patterns related to floating surfaces such as Dialogs and menus.",
       "props": [
         {
           "name": "as",
@@ -1375,7 +2129,7 @@
     },
     {
       "name": "PageHeader",
-      "description": "",
+      "description": "Determines the top-level headings of a UI.",
       "props": [
         {
           "name": "as",
@@ -1403,7 +2157,7 @@
     },
     {
       "name": "PageLayout",
-      "description": "",
+      "description": "Defines the header, main, pane, and footer areas of a page.",
       "props": [
         {
           "name": "containerWidth",
@@ -1452,7 +2206,7 @@
     },
     {
       "name": "Pagination",
-      "description": "",
+      "description": "A horizontal set of links to navigate paginated content.",
       "props": [
         {
           "name": "className",
@@ -1506,8 +2260,111 @@
       "subComponents": []
     },
     {
-      "name": "Popover",
+      "name": "Pane",
       "description": "",
+      "props": [
+        {
+          "name": "position",
+          "type": "\"end\" | \"start\" | ResponsiveValue<\"end\" | \"start\">",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "positionWhenNarrow",
+          "type": "\"inherit\" | \"end\" | \"start\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "width",
+          "type": "\"medium\" | \"large\" | \"small\" | CustomWidthOptions",
+          "required": false,
+          "description": "The width of the pane.\n- Named sizes: `'small'` | `'medium'` | `'large'`\n- Custom object: `{min: string, default: string, max: string}`\n\nWhen `resizable` is enabled, this defines the default width and constraints\n(min/max bounds for dragging). Use `currentWidth` to control the displayed width."
+        },
+        {
+          "name": "minWidth",
+          "type": "number",
+          "required": false,
+          "description": "Minimum width of the pane in pixels. Only used with named `width` sizes.\nIgnored when `width` is a custom object (use `width.min` instead)."
+        },
+        {
+          "name": "widthStorageKey",
+          "type": "string",
+          "required": false,
+          "description": "localStorage key used to persist the pane width across sessions.\nOnly applies when `resizable` is `true` and no `onResizeEnd` callback is provided."
+        },
+        {
+          "name": "padding",
+          "type": "\"none\" | \"condensed\" | \"normal\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "divider",
+          "type": "\"none\" | \"line\" | ResponsiveValue<\"none\" | \"line\", \"none\" | \"line\" | \"filled\">",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "dividerWhenNarrow",
+          "type": "\"none\" | \"line\" | \"filled\" | \"inherit\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "sticky",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "offsetHeader",
+          "type": "string | number",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "hidden",
+          "type": "false | true | ResponsiveValue<boolean>",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "resizable",
+          "type": "false | true",
+          "required": false,
+          "description": "Enable resizable pane behavior.\nWhen `true`, the pane may be resized by the user via drag or keyboard.\nUses localStorage persistence by default unless `onResizeEnd` is provided.\n\nNote: With default localStorage persistence in SSR, the server-rendered\nwidth may differ from the stored client width, causing a brief layout\nshift on hydration. Use `onResizeEnd` with server-aware storage to avoid this."
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "currentWidth",
+          "type": "number",
+          "required": false,
+          "description": "Current/controlled width value in pixels.\nWhen provided, this is used as the current pane width instead of internal state.\nThe `width` prop still defines the default used when resetting (e.g., double-click).\nPass `undefined` when the persisted value has not loaded yet (e.g., async fetch)."
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Popover",
+      "description": "Used to bring attention to specific user interface elements.",
       "props": [
         {
           "name": "className",
@@ -1539,8 +2396,21 @@
       ]
     },
     {
-      "name": "ProgressBar",
+      "name": "PrimaryAction",
       "description": "",
+      "props": [
+        {
+          "name": "href",
+          "type": "string",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "ProgressBar",
+      "description": "A simple chart to show how complete something is, or visualize parts of a whole.",
       "props": [
         {
           "name": "bg",
@@ -1578,8 +2448,14 @@
       ]
     },
     {
-      "name": "Radio",
+      "name": "Provider",
       "description": "",
+      "props": [],
+      "subComponents": []
+    },
+    {
+      "name": "Radio",
+      "description": "A form control for making a single selection from a short list of options.",
       "props": [
         {
           "name": "value",
@@ -1616,7 +2492,7 @@
     },
     {
       "name": "RadioGroup",
-      "description": "",
+      "description": "Used to render a short list of mutually exclusive options.",
       "props": [
         {
           "name": "name",
@@ -1657,19 +2533,142 @@
     },
     {
       "name": "RelativeTime",
-      "description": "",
+      "description": "Displays time in a way that is clear, concise, and accessible.",
       "props": [],
+      "subComponents": []
+    },
+    {
+      "name": "RenderItemFn",
+      "description": "",
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": false,
+          "description": "Primary text which names an `Item`."
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false,
+          "description": "Secondary text which provides additional information about an `Item`."
+        },
+        {
+          "name": "descriptionVariant",
+          "type": "\"block\" | \"inline\"",
+          "required": false,
+          "description": "Secondary text style variations. Usage is discretionary.\n\n- `\"inline\"` - Secondary text is positioned beside primary text.\n- `\"block\"` - Secondary text is positioned below primary text."
+        },
+        {
+          "name": "leadingVisual",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": false,
+          "description": "Icon (or similar) positioned before `Item` text."
+        },
+        {
+          "name": "trailingIcon",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "trailingText",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "trailingVisual",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | ComponentClass<any, any>",
+          "required": false,
+          "description": "Icon or text positioned after `Item` text."
+        },
+        {
+          "name": "variant",
+          "type": "\"default\" | \"danger\"",
+          "required": false,
+          "description": "Style variations associated with various `Item` types.\n\n- `\"default\"` - An action `Item`.\n- `\"danger\"` - A destructive action `Item`."
+        },
+        {
+          "name": "selected",
+          "type": "false | true",
+          "required": false,
+          "description": "For `Item`s which can be selected, whether the `Item` is currently selected."
+        },
+        {
+          "name": "groupId",
+          "type": "string",
+          "required": false,
+          "description": "Designates the group that an item belongs to."
+        },
+        {
+          "name": "disabled",
+          "type": "false | true",
+          "required": false,
+          "description": "Items that are disabled can not be clicked, selected, or navigated through."
+        },
+        {
+          "name": "id",
+          "type": "string | number",
+          "required": false,
+          "description": "An id associated with this item.  Should be unique between items"
+        },
+        {
+          "name": "children",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": false,
+          "description": "Node to be included inside the item before the text."
+        },
+        {
+          "name": "role",
+          "type": "\"none\" | \"button\" | \"form\" | \"list\" | \"article\" | \"dialog\" | \"figure\" | \"img\" | \"link\" | \"main\"",
+          "required": false,
+          "description": "The ARIA role describing the function of `List` component. `option` is a common value."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "className to apply to the list item"
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Root",
+      "description": "",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        }
+      ],
       "subComponents": []
     },
     {
       "name": "ScrollableRegion",
-      "description": "",
+      "description": "A scrollable container with accessible keyboard scrolling.",
       "props": [],
       "subComponents": []
     },
     {
-      "name": "SegmentedControl",
+      "name": "SecondaryAction",
       "description": "",
+      "props": [
+        {
+          "name": "href",
+          "type": "string",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "SegmentedControl",
+      "description": "Used to pick one choice from a linear set of closely related choices.",
       "props": [
         {
           "name": "fullWidth",
@@ -1702,8 +2701,51 @@
       ]
     },
     {
-      "name": "Select",
+      "name": "SegmentedControlIconButton",
       "description": "",
+      "props": [
+        {
+          "name": "icon",
+          "type": "ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<PropsWithChildren<IconProps>>",
+          "required": true,
+          "description": "The icon that represents the segmented control item"
+        },
+        {
+          "name": "selected",
+          "type": "false | true",
+          "required": false,
+          "description": "Whether the segment is selected. This is used for controlled SegmentedControls, and needs to be updated using the onChange handler on SegmentedControl."
+        },
+        {
+          "name": "defaultSelected",
+          "type": "false | true",
+          "required": false,
+          "description": "Whether the segment is selected. This is used for uncontrolled SegmentedControls to pick one SegmentedControlButton that is selected on the initial render."
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false,
+          "description": "Supplementary description that renders inside tooltip in place of the label."
+        },
+        {
+          "name": "tooltipDirection",
+          "type": "\"s\" | \"nw\" | \"n\" | \"ne\" | \"e\" | \"se\" | \"sw\" | \"w\"",
+          "required": false,
+          "description": "The direction for the tooltip."
+        },
+        {
+          "name": "disabled",
+          "type": "false | true",
+          "required": false,
+          "description": "Whether the button is disabled."
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Select",
+      "description": "For choosing a single option from a dropdown menu of predefined choices.",
       "props": [
         {
           "name": "as",
@@ -1718,8 +2760,21 @@
       ]
     },
     {
-      "name": "SelectPanel",
+      "name": "Selection",
       "description": "",
+      "props": [
+        {
+          "name": "selected",
+          "type": "false | true",
+          "required": false,
+          "description": "Is the `Item` is currently selected?"
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "SelectPanel",
+      "description": "An anchored dialog for quickly navigating and selecting from a list.",
       "props": [
         {
           "name": "title",
@@ -1848,6 +2903,134 @@
       ]
     },
     {
+      "name": "SelectPanelMessage",
+      "description": "",
+      "props": [
+        {
+          "name": "children",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "variant",
+          "type": "\"error\" | \"warning\" | \"empty\"",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "type": "FunctionComponent<IconProps> | ComponentClass<IconProps, any>",
+          "required": false,
+          "description": "Custom icon to display above the title.\nWhen not provided, uses AlertIcon for error/warning states and no icon for empty state."
+        },
+        {
+          "name": "action",
+          "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+          "required": false,
+          "description": "Custom action element to display below the message body.\nThis can be used to render interactive elements like buttons or links.\nEnsure the action element is accessible by providing appropriate ARIA attributes\nand making it keyboard-navigable."
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Sidebar",
+      "description": "",
+      "props": [
+        {
+          "name": "position",
+          "type": "\"end\" | \"start\"",
+          "required": false,
+          "description": "Position of the sidebar relative to the page layout"
+        },
+        {
+          "name": "width",
+          "type": "\"medium\" | \"large\" | \"small\" | CustomWidthOptions",
+          "required": false,
+          "description": "Width configuration for the sidebar"
+        },
+        {
+          "name": "minWidth",
+          "type": "number",
+          "required": false,
+          "description": "Minimum width of the sidebar when resizable"
+        },
+        {
+          "name": "resizable",
+          "type": "false | true",
+          "required": false,
+          "description": "Whether the sidebar can be resized"
+        },
+        {
+          "name": "widthStorageKey",
+          "type": "string",
+          "required": false,
+          "description": "localStorage key used to persist the sidebar width across sessions.\nOnly applies when `resizable` is `true`.\nWhen omitted, localStorage is not used."
+        },
+        {
+          "name": "padding",
+          "type": "\"none\" | \"condensed\" | \"normal\"",
+          "required": false,
+          "description": "Padding inside the sidebar"
+        },
+        {
+          "name": "divider",
+          "type": "\"none\" | \"line\"",
+          "required": false,
+          "description": "Divider style between sidebar and content"
+        },
+        {
+          "name": "sticky",
+          "type": "false | true",
+          "required": false,
+          "description": "Whether the sidebar sticks to the viewport when scrolling.\nWhen enabled, the sidebar uses `position: sticky` with `top: 0` and `height: 100vh`."
+        },
+        {
+          "name": "responsiveVariant",
+          "type": "\"fullscreen\" | \"default\"",
+          "required": false,
+          "description": "Controls sidebar behavior at narrow viewport widths (below 768px).\n- `'default'`: the sidebar retains its normal inline layout.\n- `'fullscreen'`: the sidebar expands to cover the full viewport like a dialog overlay."
+        },
+        {
+          "name": "hidden",
+          "type": "false | true | ResponsiveValue<boolean>",
+          "required": false,
+          "description": "Whether the sidebar is hidden"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "description": "Optional id for the sidebar element"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
       "name": "SideNav",
       "description": "",
       "props": [
@@ -1888,7 +3071,7 @@
     },
     {
       "name": "SkeletonAvatar",
-      "description": "",
+      "description": "Placeholder for loading Avatars.",
       "props": [
         {
           "name": "className",
@@ -1913,7 +3096,7 @@
     },
     {
       "name": "SkeletonBox",
-      "description": "",
+      "description": "Placeholder for non-text, non-Avatar loading elements.",
       "props": [
         {
           "name": "height",
@@ -1944,7 +3127,7 @@
     },
     {
       "name": "SkeletonText",
-      "description": "",
+      "description": "Placeholder for loading text.",
       "props": [
         {
           "name": "size",
@@ -1975,7 +3158,7 @@
     },
     {
       "name": "Spinner",
-      "description": "",
+      "description": "An indeterminate loading indicator.",
       "props": [
         {
           "name": "size",
@@ -2012,7 +3195,7 @@
     },
     {
       "name": "SplitPageLayout",
-      "description": "",
+      "description": "A layout with a two-column layout: main content area and sidebar.",
       "props": [
         {
           "name": "className",
@@ -2031,7 +3214,7 @@
     },
     {
       "name": "Stack",
-      "description": "",
+      "description": "A layout component that creates responsive horizontal and vertical flows.",
       "props": [
         {
           "name": "as",
@@ -2045,8 +3228,21 @@
       ]
     },
     {
-      "name": "StateLabel",
+      "name": "StackItem",
       "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": "Customize the element type of the rendered container"
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "StateLabel",
+      "description": "Used for rendering the status of an issue or pull request.",
       "props": [
         {
           "name": "size",
@@ -2070,8 +3266,21 @@
       "subComponents": []
     },
     {
-      "name": "SubNav",
+      "name": "SubItem",
       "description": "",
+      "props": [
+        {
+          "name": "children",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "SubNav",
+      "description": "Used for navigation within a section of a page.",
       "props": [
         {
           "name": "full",
@@ -2104,8 +3313,27 @@
       ]
     },
     {
-      "name": "Table",
+      "name": "Summary",
       "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "As",
+          "required": false,
+          "description": "HTML element to render summary as."
+        },
+        {
+          "name": "children",
+          "type": "string | number | bigint | false | true | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode>",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "Table",
+      "description": "A composable HTML table with Primer styling for data display.",
       "props": [
         {
           "name": "gridTemplateColumns",
@@ -2132,6 +3360,157 @@
       ]
     },
     {
+      "name": "TableActions",
+      "description": "",
+      "props": [],
+      "subComponents": []
+    },
+    {
+      "name": "TableBody",
+      "description": "",
+      "props": [],
+      "subComponents": []
+    },
+    {
+      "name": "TableCell",
+      "description": "",
+      "props": [
+        {
+          "name": "align",
+          "type": "\"end\" | \"start\"",
+          "required": false,
+          "description": "The horizontal alignment of the cell's content"
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "TableCellPlaceholder",
+      "description": "",
+      "props": [],
+      "subComponents": []
+    },
+    {
+      "name": "TableContainer",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "As",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "TableDivider",
+      "description": "",
+      "props": [],
+      "subComponents": []
+    },
+    {
+      "name": "TableHead",
+      "description": "",
+      "props": [],
+      "subComponents": []
+    },
+    {
+      "name": "TableHeader",
+      "description": "",
+      "props": [
+        {
+          "name": "align",
+          "type": "\"end\" | \"start\"",
+          "required": false,
+          "description": "The horizontal alignment of the cell's content"
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "TableRow",
+      "description": "",
+      "props": [],
+      "subComponents": []
+    },
+    {
+      "name": "TableSkeleton",
+      "description": "",
+      "props": [
+        {
+          "name": "columns",
+          "type": "Column<Data>[]",
+          "required": true,
+          "description": "Provide an array of columns for the table. Columns will render as the headers\nof the table."
+        },
+        {
+          "name": "rows",
+          "type": "number",
+          "required": false,
+          "description": "Optionally specify the number of rows which should be included in the\nskeleton state of the component"
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "TableSortHeader",
+      "description": "",
+      "props": [
+        {
+          "name": "align",
+          "type": "\"end\" | \"start\"",
+          "required": false,
+          "description": "The horizontal alignment of the cell's content"
+        },
+        {
+          "name": "direction",
+          "type": "\"ASC\" | \"DESC\" | \"NONE\"",
+          "required": true,
+          "description": "Specify the sort direction for the TableHeader"
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "TableSubtitle",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": false,
+          "description": "Provide an alternate element or component to use as the container for\n`TableSubtitle`. This is useful when specifying markup that is more\nsemantic for your use-case"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "description": "Provide a unique id for the table subtitle. This should be used along with\n`aria-describedby` on `DataTable`"
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "TableTitle",
+      "description": "",
+      "props": [
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "description": "Provide a unique id for the table subtitle. This should be used along with\n`aria-labelledby` on `DataTable`"
+        },
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": false,
+          "description": "Provide an alternate element or component to use as the container for\n`TableSubtitle`. This is useful when specifying markup that is more\nsemantic for your use-case, such as a heading tag."
+        }
+      ],
+      "subComponents": []
+    },
+    {
       "name": "Tabs",
       "description": "",
       "props": [
@@ -2152,7 +3531,7 @@
     },
     {
       "name": "Text",
-      "description": "",
+      "description": "An abstraction for using Primer's typographic styles.",
       "props": [
         {
           "name": "as",
@@ -2165,7 +3544,7 @@
     },
     {
       "name": "Textarea",
-      "description": "",
+      "description": "Used to set a value that is multiple lines of text.",
       "props": [
         {
           "name": "disabled",
@@ -2232,7 +3611,7 @@
     },
     {
       "name": "TextInput",
-      "description": "",
+      "description": "Used to set a value that is a single line of text.",
       "props": [
         {
           "name": "as",
@@ -2247,7 +3626,7 @@
     },
     {
       "name": "TextInputWithTokens",
-      "description": "",
+      "description": "An input for a value that is a list.",
       "props": [
         {
           "name": "tokenComponent",
@@ -2374,7 +3753,7 @@
     },
     {
       "name": "Timeline",
-      "description": "",
+      "description": "Used to display items on a vertical Timeline.",
       "props": [
         {
           "name": "clipSidebar",
@@ -2398,7 +3777,7 @@
     },
     {
       "name": "ToggleSwitch",
-      "description": "",
+      "description": "Used to immediately toggle a setting on or off.",
       "props": [
         {
           "name": "defaultChecked",
@@ -2471,7 +3850,7 @@
     },
     {
       "name": "Token",
-      "description": "",
+      "description": "A compact representation of an object, typically used for related metadata.",
       "props": [
         {
           "name": "as",
@@ -2484,7 +3863,7 @@
     },
     {
       "name": "Tooltip",
-      "description": "",
+      "description": "Adds additional context to interactive UI elements on hover or keyboard focus.",
       "props": [
         {
           "name": "direction",
@@ -2521,7 +3900,7 @@
     },
     {
       "name": "TopicTag",
-      "description": "",
+      "description": "Used to display a topic tag.",
       "props": [
         {
           "name": "as",
@@ -2541,8 +3920,33 @@
       ]
     },
     {
-      "name": "TreeView",
+      "name": "TopicTagGroup",
       "description": "",
+      "props": [],
+      "subComponents": []
+    },
+    {
+      "name": "TrailingAction",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "TrailingVisual",
+      "description": "",
+      "props": [],
+      "subComponents": []
+    },
+    {
+      "name": "TreeView",
+      "description": "A hierarchical list of items that can be expanded or collapsed.",
       "props": [
         {
           "name": "children",
@@ -2587,7 +3991,7 @@
     },
     {
       "name": "Truncate",
-      "description": "",
+      "description": "Used to shorten overflowing text with an ellipsis.",
       "props": [
         {
           "name": "as",
@@ -2600,7 +4004,7 @@
     },
     {
       "name": "UnderlineNav",
-      "description": "",
+      "description": "Used to display navigation in a horizontal tabbed format.",
       "props": [
         {
           "name": "children",
@@ -2638,8 +4042,21 @@
       ]
     },
     {
-      "name": "UnderlinePanels",
+      "name": "UnderlineNavItem",
       "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "\"symbol\" | \"object\" | \"button\" | \"form\" | \"pattern\" | \"slot\" | \"style\" | \"title\" | \"a\" | \"abbr\"",
+          "required": true,
+          "description": "Renders `UnderlineNav.Item` as given component i.e. react-router's Link"
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "UnderlinePanels",
+      "description": "Used to break related content into tabbed panels.",
       "props": [
         {
           "name": "children",
@@ -2678,9 +4095,83 @@
       ]
     },
     {
-      "name": "VisuallyHidden",
+      "name": "UnwrappedLink",
+      "description": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "As",
+          "required": false,
+          "description": ""
+        }
+      ],
+      "subComponents": []
+    },
+    {
+      "name": "VerticalDivider",
       "description": "",
       "props": [],
+      "subComponents": []
+    },
+    {
+      "name": "Visual",
+      "description": "",
+      "props": [],
+      "subComponents": []
+    },
+    {
+      "name": "VisualContainer",
+      "description": "",
+      "props": [],
+      "subComponents": []
+    },
+    {
+      "name": "VisuallyHidden",
+      "description": "Visually hides content while keeping it accessible to screen readers.",
+      "props": [],
+      "subComponents": []
+    },
+    {
+      "name": "VisualOrIndicator",
+      "description": "",
+      "props": [
+        {
+          "name": "inactiveText",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "itemHasLeadingVisual",
+          "type": "false | true",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "labelId",
+          "type": "string",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "loading",
+          "type": "false | true",
+          "required": false,
+          "description": ""
+        },
+        {
+          "name": "position",
+          "type": "\"leading\" | \"trailing\"",
+          "required": true,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": ""
+        }
+      ],
       "subComponents": []
     }
   ],
@@ -2690,6 +4181,9 @@
     "ActionBar.Group",
     "ActionBar.IconButton",
     "ActionBar.Menu",
+    "ActionBarGroup",
+    "ActionBarIconButton",
+    "ActionBarMenu",
     "ActionList",
     "ActionList.Description",
     "ActionList.Divider",
@@ -2722,6 +4216,12 @@
     "Banner.PrimaryAction",
     "Banner.SecondaryAction",
     "Banner.Title",
+    "BannerActions",
+    "BannerDescription",
+    "BannerPrimaryAction",
+    "BannerSecondaryAction",
+    "BannerTitle",
+    "BaseOverlay",
     "Blankslate",
     "Blankslate.Description",
     "Blankslate.Heading",
@@ -2735,6 +4235,7 @@
     "Breadcrumbs.Item",
     "Button",
     "ButtonBase",
+    "ButtonComponent",
     "ButtonGroup",
     "Checkbox",
     "CheckboxGroup",
@@ -2744,8 +4245,11 @@
     "CircleBadge",
     "CircleBadge.Icon",
     "ConfirmationDialog",
+    "Content",
     "CounterLabel",
+    "CustomSortStrategy",
     "DataTable",
+    "Description",
     "Details",
     "Details.Summary",
     "Dialog",
@@ -2756,13 +4260,22 @@
     "Dialog.Header",
     "Dialog.Subtitle",
     "Dialog.Title",
+    "Divider",
+    "ErrorDialog",
     "FilteredActionList",
+    "FilteredActionListBodyLoader",
     "Flash",
+    "Footer",
     "FormControl",
     "FormControl.Caption",
     "FormControl.Label",
     "FormControl.LeadingVisual",
     "FormControl.Validation",
+    "FormControlCaption",
+    "FormControlContextProvider",
+    "Group",
+    "GroupExpand",
+    "GroupHeading",
     "Header",
     "Header.Item",
     "Header.Link",
@@ -2772,11 +4285,16 @@
     "InlineMessage",
     "IssueLabel",
     "IssueLabelToken",
+    "Item",
     "KeybindingHint",
     "Label",
     "LabelGroup",
+    "LeadingVisual",
     "Link",
     "LinkButton",
+    "LinkItem",
+    "List",
+    "MenuCloseHandler",
     "NavList",
     "NavList.Description",
     "NavList.Divider",
@@ -2811,28 +4329,38 @@
     "PageLayout.Pane",
     "PageLayout.Sidebar",
     "Pagination",
+    "Pane",
     "Popover",
     "Popover.Content",
+    "PrimaryAction",
     "ProgressBar",
     "ProgressBar.Item",
+    "Provider",
     "Radio",
     "RadioGroup",
     "RadioGroup.Caption",
     "RadioGroup.Label",
     "RadioGroup.Validation",
     "RelativeTime",
+    "RenderItemFn",
+    "Root",
     "ScrollableRegion",
+    "SecondaryAction",
     "SegmentedControl",
     "SegmentedControl.Button",
     "SegmentedControl.IconButton",
+    "SegmentedControlIconButton",
     "Select",
     "Select.OptGroup",
     "Select.Option",
     "SelectPanel",
     "SelectPanel.SecondaryActionButton",
     "SelectPanel.SecondaryActionLink",
+    "SelectPanelMessage",
+    "Selection",
     "SideNav",
     "SideNav.Link",
+    "Sidebar",
     "SkeletonAvatar",
     "SkeletonBox",
     "SkeletonText",
@@ -2845,10 +4373,13 @@
     "SplitPageLayout.Sidebar",
     "Stack",
     "Stack.Item",
+    "StackItem",
     "StateLabel",
+    "SubItem",
     "SubNav",
     "SubNav.Link",
     "SubNav.Links",
+    "Summary",
     "Table",
     "Table.Actions",
     "Table.Body",
@@ -2864,6 +4395,19 @@
     "Table.Skeleton",
     "Table.Subtitle",
     "Table.Title",
+    "TableActions",
+    "TableBody",
+    "TableCell",
+    "TableCellPlaceholder",
+    "TableContainer",
+    "TableDivider",
+    "TableHead",
+    "TableHeader",
+    "TableRow",
+    "TableSkeleton",
+    "TableSortHeader",
+    "TableSubtitle",
+    "TableTitle",
     "Tabs",
     "Text",
     "TextInput",
@@ -2880,6 +4424,9 @@
     "Tooltip",
     "TopicTag",
     "TopicTag.Group",
+    "TopicTagGroup",
+    "TrailingAction",
+    "TrailingVisual",
     "TreeView",
     "TreeView.DirectoryIcon",
     "TreeView.ErrorDialog",
@@ -2891,9 +4438,15 @@
     "Truncate",
     "UnderlineNav",
     "UnderlineNav.Item",
+    "UnderlineNavItem",
     "UnderlinePanels",
     "UnderlinePanels.Panel",
     "UnderlinePanels.Tab",
+    "UnwrappedLink",
+    "VerticalDivider",
+    "Visual",
+    "VisualContainer",
+    "VisualOrIndicator",
     "VisuallyHidden"
   ]
 }
