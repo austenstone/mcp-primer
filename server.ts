@@ -43,7 +43,9 @@ export function createServer(): McpServer {
         "Render an interactive GitHub Primer React component inline. Input is a component tree as JSON. " +
         "Each node has { type, props?, children? }. " +
         "type is a Primer component name. children can be a string, a single node, or an array. " +
-        "Example: { type: 'Button', props: { variant: 'primary' }, children: 'Click me' }",
+        "Any on* prop with a string value (e.g. onClick: 'merge-clicked', onChange: 'input-changed') " +
+        "becomes an event that reports user interactions back to the model context. " +
+        "Example: { type: 'Button', props: { variant: 'primary', onClick: 'confirm' }, children: 'Confirm' }",
       inputSchema,
       _meta: { ui: { resourceUri } },
     },

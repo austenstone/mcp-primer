@@ -32,6 +32,11 @@ export const inputSchema = {
       "`type` is a Primer component name. `props` is an object of component props. " +
       "`children` can be a string (text), a single child node, or an array of child nodes. " +
       "Nodes can be nested recursively.\n\n" +
+      "**Events:** Any `on*` prop (onClick, onChange, onSelect, etc.) with a string value " +
+      "becomes an event binding. When triggered, the event ID and extracted value are sent " +
+      "to the model context. Example: { type: 'Button', props: { onClick: 'merge-clicked' }, children: 'Merge' } " +
+      "or { type: 'TextInput', props: { onChange: 'name-changed', placeholder: 'Enter name' } }. " +
+      "Legacy: `onEvent` prop works as a catch-all click handler.\n\n" +
       "Available components:\n" + componentSummary,
     ),
 };

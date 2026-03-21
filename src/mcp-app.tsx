@@ -145,7 +145,7 @@ function PrimerApp() {
             </div>
           )}
           {tree ? (
-            <PrimerRenderer tree={tree} />
+            <PrimerRenderer tree={tree} app={app} />
           ) : (
             <div style={{ color: "var(--fgColor-muted)", fontSize: 13 }}>
               Waiting for component data...
