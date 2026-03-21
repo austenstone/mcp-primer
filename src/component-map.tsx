@@ -43,6 +43,7 @@ import {
   Truncate,
   UnderlineNav,
 } from "@primer/react";
+import { DataTable, Table } from "@primer/react/experimental";
 
 // Cast through `unknown` — Primer components have strict required props that
 // don't match our generic signature. The LLM provides correct props at runtime.
@@ -129,6 +130,23 @@ const COMPONENT_MAP: Record<string, ComponentType<any>> = {
   NavList: c(NavList),
   "NavList.Item": c(NavList.Item),
   "NavList.SubNav": c(NavList.SubNav),
+
+  // Data
+  DataTable: c(DataTable),
+  Table: c(Table),
+  "Table.Container": c(Table.Container),
+  "Table.Title": c(Table.Title),
+  "Table.Subtitle": c(Table.Subtitle),
+  "Table.Actions": c(Table.Actions),
+  "Table.Divider": c(Table.Divider),
+  "Table.Skeleton": c(Table.Skeleton),
+  "Table.Head": c(Table.Head),
+  "Table.Body": c(Table.Body),
+  "Table.Header": c(Table.Header),
+  "Table.Row": c(Table.Row),
+  "Table.Cell": c(Table.Cell),
+  "Table.CellPlaceholder": c(Table.CellPlaceholder),
+  "Table.Pagination": c(Table.Pagination),
 };
 
 export function resolveComponent(name: string): ComponentType<any> | undefined {

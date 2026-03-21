@@ -47,6 +47,12 @@ const PRIMER_COMPONENTS = [
   "Truncate", "Tooltip", "Popover", "Popover.Content",
   "TreeView", "TreeView.Item", "TreeView.SubTree",
   "NavList", "NavList.Item", "NavList.SubNav",
+  // Data
+  "DataTable",
+  "Table", "Table.Container", "Table.Title", "Table.Subtitle",
+  "Table.Actions", "Table.Divider", "Table.Skeleton",
+  "Table.Head", "Table.Body", "Table.Header",
+  "Table.Row", "Table.Cell", "Table.CellPlaceholder", "Table.Pagination",
 ] as const;
 
 export function createServer(): McpServer {
