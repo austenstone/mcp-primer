@@ -26,22 +26,21 @@ export function createServer(): McpServer {
     {
       instructions:
         "This server renders GitHub Primer React components inline as interactive UI. " +
-        "Use render-primer to display components, or list-components to see what's available. " +
+        "Use render_primer to display components, or list_components to see what's available. " +
         `${meta.allNames.length} components from @primer/react@${meta.version}.`,
     },
   );
 
   const resourceUri = "ui://primer/mcp-app.html";
 
-  // render-primer: renders a Primer component tree inline
   registerAppTool(
     server,
-    "render-primer",
+    "render_primer",
     {
       title: "Render Primer Components",
       annotations: { readOnlyHint: true },
       description:
-        "Renders GitHub Primer React components inline. Pass a component tree as JSON. " +
+        "Render an interactive GitHub Primer React component inline. Input is a component tree as JSON. " +
         "Each node has { type, props?, children? }. " +
         "type is a Primer component name. children can be a string, a single node, or an array. " +
         "Example: { type: 'Button', props: { variant: 'primary' }, children: 'Click me' }",
@@ -49,21 +48,34 @@ export function createServer(): McpServer {
       _meta: { ui: { resourceUri } },
     },
     async (args): Promise<CallToolResult> => {
-      const tree = args.tree;
-      return {
-        content: [{ type: "text", text: JSON.stringify(tree) }],
-      };
+      try {
+        const tree = args.tree;
+        if (!tree || typeof tree !== "object") {
+          return {
+            isError: true,
+            content: [{ type: "text", text: "Invalid input: tree must be an object with { type, props?, children? }" }],
+          };
+        }
+        return {
+          content: [{ type: "text", text: JSON.stringify(tree) }],
+        };
+      } catch (e) {
+        return {
+          isError: true,
+          content: [{ type: "text", text: `Error: ${e instanceof Error ? e.message : String(e)}` }],
+        };
+      }
     },
   );
 
-  // list-components: returns available Primer components
   registerAppTool(
     server,
-    "list-components",
+    "list_components",
     {
       title: "List Primer Components",
+      annotations: { readOnlyHint: true },
       description:
-        "Returns a list of all available Primer React components that can be used with render-primer.",
+        "Returns all available Primer React component names, descriptions, props, and usage examples for render_primer.",
       _meta: { ui: { resourceUri } },
     },
     async (): Promise<CallToolResult> => {
@@ -73,12 +85,14 @@ export function createServer(): McpServer {
     },
   );
 
-  // UI resource: the bundled HTML/JS/CSS
   registerAppResource(
     server,
+    "Primer Component View",
     resourceUri,
-    resourceUri,
-    { mimeType: RESOURCE_MIME_TYPE },
+    {
+      description: "Interactive GitHub Primer component renderer",
+      mimeType: RESOURCE_MIME_TYPE,
+    },
     async (): Promise<ReadResourceResult> => {
       const html = await fs.readFile(
         path.join(DIST_DIR, "mcp-app.html"),

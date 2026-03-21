@@ -1,8 +1,15 @@
 {
   "servers": {
     "primer": {
-      "command": "node",
-      "args": ["${workspaceFolder}/dist/main.js", "--stdio"]
+      "command": "npx",
+      "args": ["tsx", "${workspaceFolder}/main.ts", "--stdio"],
+      "type": "stdio",
+      "dev": {
+        "watch": "${workspaceFolder}/dist/**",
+        "debug": {
+          "type": "node"
+        }
+      }
     }
   }
 }

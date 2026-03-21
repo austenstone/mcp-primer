@@ -1,5 +1,5 @@
 /**
- * Builds a Zod input schema from primer-meta.json for the render-primer tool.
+ * Builds a Zod input schema from primer-meta.json for the render_primer tool.
  * Provides the LLM with component names, descriptions, and props via .describe().
  */
 import { z } from "zod";
